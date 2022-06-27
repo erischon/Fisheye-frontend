@@ -1,0 +1,19 @@
+{
+  "name": "fisheye-frontend",
+  "version": "1.0.0",
+  "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erischon/Fisheye-frontend.git"
+  },
+  "author": "Eri Schön",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erischon/Fisheye-frontend/issues"
+  },
+  "homepage": "https://github.com/erischon/Fisheye-frontend#readme"
+}
