@@ -24,6 +24,7 @@ function photographerFactory(data) {
     line3.textContent = `${price}€/jour`;
 
     linkBox.classList.add("card__linkBox");
+    desc.classList.add("card__description");
     line1.classList.add("card__location");
     line2.classList.add("card__tagline");
     line3.classList.add("card__price");
