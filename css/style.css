@@ -1,5 +1,11 @@
 @import url("photographer.css");
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
@@ -47,9 +53,42 @@ h1 {
 .photographer_section article h2 {
   color: #d3573c;
   font-size: 36px;
+  margin: 1rem 0;
 }
 
 .photographer_section article img {
   height: 200px;
   width: 200px;
+}
+
+.photographer_section article a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card__linkBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__location {
+  font-size: 1.35rem;
+  color: #d3573c;
+}
+
+.card__tagline {
+}
+
+.card__price {
+  color: gray;
 }
