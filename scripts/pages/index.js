@@ -1,13 +1,14 @@
 const API_URL = "data/photographers.json";
 
+// return photographers;
 async function getPhotographers() {
-  const response = await fetch(API_URL)
-    .then((res) => res.json())
-    .then((data) => {
-      const photographers = data.photographers;
-      const media = data.media;
-      return [photographers, media];
-    });
+  const response = await fetch(API_URL);
+
+  if (!response.ok) {
+    console.log("Error");
+  }
+  const photographers = response.json();
+  return photographers;
 }
 
 async function displayData(photographers) {
