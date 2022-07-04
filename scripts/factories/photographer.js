@@ -17,8 +17,10 @@ function photographerFactory(data) {
     const url = `photographer/${id}`;
 
     img.setAttribute("src", picture);
+    img.setAttribute("alt", name);
     h2.textContent = name;
     link.setAttribute("href", url);
+    link.setAttribute("aria-label", `Link to ${name}`);
     line1.textContent = `${city}, ${country}`;
     line2.textContent = tagline;
     line3.textContent = `${price}€/jour`;
@@ -39,5 +41,6 @@ function photographerFactory(data) {
     desc.appendChild(line3);
     return article;
   }
+
   return { name, picture, getUserCardDOM };
 }
