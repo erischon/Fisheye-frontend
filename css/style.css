@@ -31,7 +31,7 @@ h1 {
 
 .photographer_section {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   gap: 70px;
   margin-top: 100px;
 }
@@ -91,4 +91,9 @@ h1 {
 
 .card__price {
   color: gray;
+  font-size: 0.9rem;
 }
+
+/* @media screen and (max-width: 640px) {
+
+} */
