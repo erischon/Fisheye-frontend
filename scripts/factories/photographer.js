@@ -14,7 +14,7 @@ function photographerFactory(data) {
     const line2 = document.createElement("span");
     const line3 = document.createElement("span");
 
-    const url = `photographer/${id}`;
+    const url = `photographer.html/${id}`;
 
     img.setAttribute("src", picture);
     img.setAttribute("alt", name);
