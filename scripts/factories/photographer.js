@@ -1,46 +1,53 @@
-function photographerFactory(data) {
-  const { id, name, city, country, tagline, price, portrait } = data;
+const API_URL = "data/photographers.json";
 
-  const picture = `assets/photographers/${portrait}`;
+const getId = () => {
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get("id"));
+  return id;
+};
 
-  function getUserCardDOM() {
-    const article = document.createElement("article");
-    const linkBox = document.createElement("div");
-    const link = document.createElement("a");
-    const img = document.createElement("img");
-    const h2 = document.createElement("h2");
-    const desc = document.createElement("div");
-    const line1 = document.createElement("span");
-    const line2 = document.createElement("span");
-    const line3 = document.createElement("span");
+async function getPhotographers() {
+  const response = await fetch(API_URL);
 
-    const url = `photographer.html/${id}`;
-
-    img.setAttribute("src", picture);
-    img.setAttribute("alt", name);
-    h2.textContent = name;
-    link.setAttribute("href", url);
-    link.setAttribute("aria-label", `Link to ${name}`);
-    line1.textContent = `${city}, ${country}`;
-    line2.textContent = tagline;
-    line3.textContent = `${price}€/jour`;
-
-    linkBox.classList.add("card__linkBox");
-    desc.classList.add("card__description");
-    line1.classList.add("card__location");
-    line2.classList.add("card__tagline");
-    line3.classList.add("card__price");
-
-    article.appendChild(link);
-    article.appendChild(desc);
-    link.appendChild(linkBox);
-    linkBox.appendChild(img);
-    linkBox.appendChild(h2);
-    desc.appendChild(line1);
-    desc.appendChild(line2);
-    desc.appendChild(line3);
-    return article;
+  if (!response.ok) {
+    console.log("Error");
   }
-
-  return { name, picture, getUserCardDOM };
+  const photographers = response.json();
+  return photographers;
 }
+
+const getPhotographer = (photographers, photographerId) => {
+  const photographer = photographers.filter((item) => {
+    return item.id === photographerId;
+  });
+  return photographer;
+};
+
+const getPhotographerMedia = (data, photographerId) => {
+  const media = data.filter((item) => {
+    return item.photographerId === photographerId;
+  });
+  return media;
+};
+
+async function displayData(photographer) {
+  const photographersSection = document.querySelector(".photographer_section");
+
+  photographers.forEach((photographer) => {
+    const photographerModel = photographerFactory(photographer);
+    const userCardDOM = photographerModel.getUserCardDOM();
+    photographersSection.appendChild(userCardDOM);
+  });
+}
+
+async function init() {
+  const photographerId = getId();
+  const { photographers, media } = await getPhotographers();
+  const photographer = getPhotographer(photographers, photographerId);
+  const photographerMedia = getPhotographerMedia(media, photographerId);
+  console.log("photographer", photographer, "Media", photographerMedia);
+  // console.log("data", photographer, media);
+  // displayData(photographer);
+}
+
+init();
