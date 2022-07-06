@@ -7,6 +7,7 @@ export class Photographer {
     this._tagline = data.tagline;
     this._price = data.price;
     this._portrait = data.portrait;
+    this._path = "photographer.html";
   }
 
   get name() {
@@ -35,5 +36,9 @@ export class Photographer {
 
   get portrait() {
     return `assets/photographers/${this._portrait}`;
+  }
+
+  get url() {
+    return `${this._path}?id=${this._id}`;
   }
 }
