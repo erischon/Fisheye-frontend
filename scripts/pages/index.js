@@ -1,4 +1,5 @@
 import { getPhotographers } from "../utils/api.js";
+import { Photographer } from "../models/photographer.model.js";
 
 // const API_URL = "data/photographers.json";
 
@@ -26,6 +27,8 @@ async function displayData(photographers) {
 async function init() {
   // Récupère les datas des photographes
   const { photographers, media } = await getPhotographers();
+  const photo = photographers.map((item) => new Photographer(item));
+  console.log(photo[0].portrait);
   displayData(photographers);
 }
 
