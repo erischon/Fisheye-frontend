@@ -1,15 +1,17 @@
-const API_URL = "data/photographers.json";
+import { getPhotographers } from "../utils/api.js";
+
+// const API_URL = "data/photographers.json";
 
 // return photographers;
-async function getPhotographers() {
-  const response = await fetch(API_URL);
+// async function getPhotographers() {
+//   const response = await fetch(API_URL);
 
-  if (!response.ok) {
-    console.log("Error");
-  }
-  const photographers = response.json();
-  return photographers;
-}
+//   if (!response.ok) {
+//     console.log("Error");
+//   }
+//   const photographers = response.json();
+//   return photographers;
+// }
 
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
