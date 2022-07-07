@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
 *,
 *:before,
 *:after {
@@ -8,7 +13,9 @@
 
 body {
   font-family: "DM Sans", sans-serif;
-  margin: 0;
+  margin: 0 auto;
+  font-size: 16px;
+  max-width: 1040px;
 }
 
 h1,
@@ -52,29 +59,28 @@ header {
 }
 
 h1 {
+  font-size: 2.25rem;
   color: #901c1c;
-  margin-right: 100px;
 }
 
 .logo {
   height: 50px;
-  margin-left: 100px;
 }
 
 .photographer_section {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(360px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  -ms-grid-columns: (minmax(260px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 70px;
   margin-top: 100px;
 }
 
 .photographer_section article {
-  justify-self: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-self: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -97,6 +103,7 @@ h1 {
   color: #d3573c;
   font-size: 36px;
   margin: 1rem 0;
+  white-space: nowrap;
 }
 
 .photographer_section article img {
@@ -160,15 +167,12 @@ h1 {
   display: grid;
   -ms-grid-columns: 1.5fr 1fr 1fr;
       grid-template-columns: 1.5fr 1fr 1fr;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   background-color: #fafafa;
   height: 300px;
-  margin: 0 100px;
+  padding: 0 3.1rem;
 }
 
 .photograph-header .desc {
@@ -207,28 +211,100 @@ h1 {
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+  margin: 0 auto;
 }
 
 .photograph-header img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  margin-left: auto;
 }
 
 .photograph__media {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+  background-color: #fafafa;
+  width: 100%;
+}
+
+.photograph__media .photograph-media-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  color: #901c1c;
+  max-width: 100%;
 }
 
 .photograph__media .photograph-media-card img {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
 }
 
 .photograph__media .photograph-media-card video {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+
+.photograph__media .photograph-media-card .desc__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin-top: 0.6rem;
+}
+
+.photograph__media .photograph-media-card .desc__wrapper .desc__title {
+  max-width: 250px;
+  font-size: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.photograph__media .photograph-media-card .desc__wrapper .likes__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.photograph__media .photograph-media-card .desc__wrapper .likes__container .likes__number {
+  font-size: 1rem;
+  margin-right: 0.35rem;
+}
+
+.photograph__media .photograph-media-card .desc__wrapper .likes__container .likes__icon {
+  font-size: 1rem;
 }
 /*# sourceMappingURL=global.css.map */

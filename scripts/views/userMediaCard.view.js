@@ -22,19 +22,21 @@ export class UserMediaCard {
       media = `<video controls><source src="${this._video}" type="video/mp4"></video>`;
     }
 
-    const userHeader = `
+    const userMediaCard = `
      
           ${media}
-          <div class="">
-            <p>${this._title}</p>
-              <div>
-                <span>Likes</span>
-              </div>
+          <div class="desc__wrapper">
+            <p class="desc__title">${this._title}</p>
+
+            <div class="likes__container">
+              <span class="likes__number">${this._likes}</span>
+              <span class="material-symbols-outlined likes__icon">favorite</span>
+            </div>
           </div>
      
     `;
 
-    article.innerHTML = userHeader;
+    article.innerHTML = userMediaCard;
 
     return article;
   }
