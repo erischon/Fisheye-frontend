@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+form {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 90px;
+}
+
+h1 {
+  color: #901c1c;
+  margin-right: 100px;
+}
+
+.logo {
+  height: 50px;
+  margin-left: 100px;
+}
+
+.photographer_section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(360px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 70px;
+  margin-top: 100px;
+}
+
+.photographer_section article {
+  justify-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.photographer_section article img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+}
+
+.photographer_section article h2 {
+  color: #d3573c;
+  font-size: 36px;
+  margin: 1rem 0;
+}
+
+.photographer_section article img {
+  height: 200px;
+  width: 200px;
+}
+
+.photographer_section article a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card__linkBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card__description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card__location {
+  font-size: 1.35rem;
+  color: #d3573c;
+}
+
+.card__price {
+  color: gray;
+  font-size: 0.9rem;
+}
+
+/* @media screen and (max-width: 640px) {
+  
+  } */
+.photograph-header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.5fr 1fr 1fr;
+      grid-template-columns: 1.5fr 1fr 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fafafa;
+  height: 300px;
+  margin: 0 100px;
+}
+
+.photograph-header .desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.photograph-header .desc h1 {
+  font-size: 4rem;
+  color: #d3573c;
+}
+
+.photograph-header .desc__location {
+  font-size: 1.5rem;
+  color: #d3573c;
+}
+
+.photograph-header .desc__tagline {
+  font-size: 1.1;
+}
+
+.photograph-header button {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.photograph-header img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+/*# sourceMappingURL=global.css.map */

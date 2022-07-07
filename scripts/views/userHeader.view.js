@@ -12,22 +12,23 @@ export class UserHeader {
 
   getUserHeader() {
     const article = document.createElement("article");
+    article.classList.add("photograph-header");
 
     const userHeader = `
-        <article class="">
-          <div class="card__description">
-            <h2>${this._name}</h2>
-            <span class="card__location">${this._city}, ${this._country}</span>
-            <span class="card__tagline">${this._tagline}</span>
+        
+          <div class="desc">
+            <h1>${this._name}</h2>
+            <span class="desc__location">${this._city}, ${this._country}</span>
+            <span class="desc__tagline">${this._tagline}</span>
           </div>
 
           <button class="contact_button" onclick="displayModal()">
             Contactez-moi
           </button>
 
-          <img src="${this._portrait}" alt="${this._name}">
+          <img src="${this._portrait}" alt="${this._name}" class="photographer-header__img">
 
-        </article>
+        
       `;
 
     article.innerHTML = userHeader;

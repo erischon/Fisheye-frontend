@@ -17,7 +17,7 @@ const getPhotographer = (photographers, photographerId) => {
 };
 
 async function displayHeader(photographer) {
-  const photographerHeader = document.querySelector(".user_header");
+  const photographerHeader = document.querySelector(".photograph__header");
 
   const userHeader = new UserHeader(photographer);
   photographerHeader.appendChild(userHeader.getUserHeader());

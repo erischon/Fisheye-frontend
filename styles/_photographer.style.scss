@@ -1,0 +1,48 @@
+.photograph-header {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #fafafa;
+  height: 300px;
+  margin: 0 100px;
+  .desc {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h1 {
+      font-size: 4rem;
+      color: #d3573c;
+    }
+
+    &__location {
+      font-size: 1.5rem;
+      color: #d3573c;
+    }
+
+    &__tagline {
+      font-size: 1.1;
+    }
+  }
+
+  button {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901c1c;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+}
