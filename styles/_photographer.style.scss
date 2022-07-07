@@ -46,3 +46,20 @@
     border-radius: 50%;
   }
 }
+
+.photograph__media {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  .photograph-media-card {
+    img {
+      width: 200px;
+      height: 200px;
+    }
+
+    video {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}

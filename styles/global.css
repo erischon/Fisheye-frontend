@@ -214,4 +214,21 @@ h1 {
   height: 200px;
   border-radius: 50%;
 }
+
+.photograph__media {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.photograph__media .photograph-media-card img {
+  width: 200px;
+  height: 200px;
+}
+
+.photograph__media .photograph-media-card video {
+  width: 200px;
+  height: 200px;
+}
 /*# sourceMappingURL=global.css.map */

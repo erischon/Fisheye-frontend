@@ -4,6 +4,7 @@ export class Media {
     this._photographerId = data.photographerId;
     this._title = data.title;
     this._image = data.image;
+    this._video = data.video;
     this._likes = data.likes;
     this._date = data.date;
     this._price = data.price;
@@ -23,7 +24,17 @@ export class Media {
   }
 
   get image() {
-    return `assets/photos/${this._photographerId}/${this._image}`;
+    if (this._image) {
+      return `assets/photos/${this._photographerId}/${this._image}`;
+    }
+    return null;
+  }
+
+  get video() {
+    if (this._video) {
+      return `assets/photos/${this._photographerId}/${this._video}`;
+    }
+    return null;
   }
 
   get likes() {
