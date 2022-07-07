@@ -6,7 +6,8 @@
   background-color: #fafafa;
 
   height: 300px;
-  padding: 0 3.1rem;
+  // to look like the mockup:
+  // padding: 0 3.1rem;
 
   .desc {
     display: flex;
@@ -20,7 +21,7 @@
 
     &__location {
       font-size: 1.5rem;
-      color: #d3573c;
+      color: #901c1c;
     }
 
     &__tagline {
@@ -107,6 +108,7 @@
         .likes__number {
           font-size: 1rem;
           margin-right: 0.35rem;
+          color: #000000;
         }
 
         .likes__icon {
