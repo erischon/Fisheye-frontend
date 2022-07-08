@@ -3,6 +3,7 @@ import { Photographer } from "../models/photographer.model.js";
 import { Media } from "../models/media.model.js";
 import { UserHeader } from "../views/userHeader.view.js";
 import { UserMediaCard } from "../views/userMediaCard.view.js";
+import { photographInfosView } from "../views/userInfos.view.js";
 
 const getId = () => {
   const params = new URLSearchParams(window.location.search);
@@ -24,6 +25,12 @@ const getPhotographerMedia = (data, photographerId) => {
   return media;
 };
 
+const getLikesSum = (media) => {
+  return media.reduce((accumulator, object) => {
+    return accumulator + object.likes;
+  }, 0);
+};
+
 async function displayHeader(photographer) {
   const photographerHeader = document.querySelector(".photograph__header");
 
@@ -40,6 +47,12 @@ async function displayMedia(media) {
   });
 }
 
+async function displayPhotographInfos(likes, photographer) {
+  const photographInfos = document.querySelector("#main");
+
+  photographInfos.appendChild(photographInfosView(likes, photographer.price));
+}
+
 async function init() {
   const { photographers, media } = await getPhotographers();
 
@@ -51,6 +64,7 @@ async function init() {
 
   displayHeader(user);
   displayMedia(userMediaList);
+  displayPhotographInfos(getLikesSum(userMediaList), user);
 }
 
 init();
