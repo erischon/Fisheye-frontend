@@ -12,10 +12,11 @@
 }
 
 body {
-  font-family: "DM Sans", sans-serif;
-  margin: 0 auto;
-  font-size: 16px;
   max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
 }
 
 h1,
@@ -225,9 +226,9 @@ h1 {
   display: grid;
   -ms-grid-columns: (minmax(300px, 1fr))[auto-fill];
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
