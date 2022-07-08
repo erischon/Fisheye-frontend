@@ -14,7 +14,7 @@ const getId = () => {
 const getPhotographer = (photographers, photographerId) => {
   const photographer = photographers.filter((item) => {
     return item.id === photographerId;
-  });
+  })[0];
   return photographer;
 };
 
@@ -55,11 +55,12 @@ async function displayPhotographInfos(likes, photographer) {
 
 async function init() {
   const { photographers, media } = await getPhotographers();
+  const id = getId();
 
-  const photographer = getPhotographer(photographers, getId());
-  const photographerMedia = getPhotographerMedia(media, getId());
+  const photographer = getPhotographer(photographers, id);
+  const photographerMedia = getPhotographerMedia(media, id);
 
-  const user = new Photographer(photographer[0]);
+  const user = new Photographer(photographer);
   const userMediaList = photographerMedia.map((item) => new Media(item));
 
   displayHeader(user);
