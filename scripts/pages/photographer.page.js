@@ -55,6 +55,21 @@ async function displayPhotographerInfos(likes, photographer) {
   );
 }
 
+async function headInfos(photographer) {
+  const head = document.head;
+  const title = `Fisheye - ${photographer.name}`;
+  const description = `Fisheye - ${photographer.name}, ${photographer.tagline}`;
+
+  // Adding description meta tag
+  const desc = document.createElement("meta");
+  desc.setAttribute("name", "description");
+  desc.setAttribute("content", description);
+  head.appendChild(desc);
+
+  // Modify title
+  document.title = title;
+}
+
 async function init() {
   const { photographers, medias } = await getPhotographersData();
   const id = getId();
@@ -64,6 +79,7 @@ async function init() {
     (item) => new Media(item)
   );
 
+  headInfos(photographer);
   displayHeader(photographer);
   displayMedias(photographerMediasList);
   displayPhotographerInfos(getLikesSum(photographerMediasList), photographer);
