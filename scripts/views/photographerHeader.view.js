@@ -1,4 +1,4 @@
-export class UserHeader {
+export class PhotographerHeader {
   constructor(data) {
     this._id = data.id;
     this._name = data.name;
@@ -7,14 +7,14 @@ export class UserHeader {
     this._tagline = data.tagline;
     this._price = data.price;
     this._portrait = data.portrait;
-    this._path = data.userUrl;
+    this._path = data.photographerUrl;
   }
 
-  getUserHeader() {
+  getPhotographerHeader() {
     const article = document.createElement("article");
     article.classList.add("photograph-header");
 
-    const userHeader = `
+    const photographerHeader = `
         
           <div class="desc">
             <h1>${this._name}</h2>
@@ -31,7 +31,7 @@ export class UserHeader {
         
       `;
 
-    article.innerHTML = userHeader;
+    article.innerHTML = photographerHeader;
 
     return article;
   }

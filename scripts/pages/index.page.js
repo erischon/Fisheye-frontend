@@ -1,19 +1,19 @@
-import { getPhotographers } from "../utils/api.js";
+import { getPhotographersData } from "../services/api.js";
 import { Photographer } from "../models/photographer.model.js";
-import { UserCard } from "../views/userCard.view.js";
+import { PhotographerCard } from "../views/photographerCard.view.js";
 
 async function displayCards(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 
   photographers.forEach((photographer) => {
-    const userCard = new UserCard(photographer);
-    photographersSection.appendChild(userCard.getUserCardDOM());
+    const photographerCard = new PhotographerCard(photographer);
+    photographersSection.appendChild(photographerCard.getPhotographerCard());
   });
 }
 
 async function init() {
   // Récupère les datas des photographes
-  const { photographers, media } = await getPhotographers();
+  const { photographers, medias } = await getPhotographersData();
   const photographerList = photographers.map((item) => new Photographer(item));
   displayCards(photographerList);
 }

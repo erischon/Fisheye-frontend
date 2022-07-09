@@ -1,4 +1,4 @@
-export class UserCard {
+export class PhotographerCard {
   constructor(data) {
     this._id = data.id;
     this._name = data.name;
@@ -7,13 +7,13 @@ export class UserCard {
     this._tagline = data.tagline;
     this._price = data.price;
     this._portrait = data.portrait;
-    this._path = data.userUrl;
+    this._path = data.photographerUrl;
   }
 
-  getUserCardDOM() {
+  getPhotographerCard() {
     const article = document.createElement("article");
 
-    const userCard = `
+    const photographerCard = `
       <article>
         <a href="${this._path}" aria-label="Link to ${this._name}">
           <div class="card__linkBox">
@@ -29,7 +29,7 @@ export class UserCard {
       </article>
     `;
 
-    article.innerHTML = userCard;
+    article.innerHTML = photographerCard;
 
     return article;
   }

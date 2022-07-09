@@ -1,4 +1,4 @@
-export class UserMediaCard {
+export class PhographerMediaCard {
   constructor(data) {
     this._id = data.id;
     this._photographerId = data.photographerId;
@@ -10,7 +10,7 @@ export class UserMediaCard {
     this._price = data.price;
   }
 
-  getUserMediaCard() {
+  getPhotographerMediaCard() {
     const article = document.createElement("article");
     article.classList.add("photograph-media-card");
 
@@ -22,7 +22,7 @@ export class UserMediaCard {
       media = `<video controls><source src="${this._video}" type="video/mp4"></video>`;
     }
 
-    const userMediaCard = `
+    const photographerMediaCard = `
      
           ${media}
           <div class="desc__wrapper">
@@ -36,7 +36,7 @@ export class UserMediaCard {
      
     `;
 
-    article.innerHTML = userMediaCard;
+    article.innerHTML = photographerMediaCard;
 
     return article;
   }

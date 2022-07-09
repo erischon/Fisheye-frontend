@@ -1,7 +1,7 @@
 const API_URL = "data/photographers.json";
 
 // return photographers;
-export async function getPhotographers() {
+export async function getPhotographersData() {
   const response = await fetch(API_URL);
 
   if (!response.ok) {

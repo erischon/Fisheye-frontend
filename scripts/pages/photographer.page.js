@@ -1,9 +1,9 @@
-import { getPhotographers } from "../utils/api.js";
+import { getPhotographersData } from "../services/api.js";
 import { Photographer } from "../models/photographer.model.js";
 import { Media } from "../models/media.model.js";
-import { UserHeader } from "../views/userHeader.view.js";
-import { UserMediaCard } from "../views/userMediaCard.view.js";
-import { photographInfosView } from "../views/userInfos.view.js";
+import { PhotographerHeader } from "../views/photographerHeader.view.js";
+import { PhographerMediaCard } from "../views/photographerMediaCard.view.js";
+import { photographerInfosView } from "../views/photographerInfos.view.js";
 
 const getId = () => {
   const params = new URLSearchParams(window.location.search);
@@ -18,7 +18,7 @@ const getPhotographer = (photographers, photographerId) => {
   return photographer;
 };
 
-const getPhotographerMedia = (data, photographerId) => {
+const getPhotographerMedias = (data, photographerId) => {
   const media = data.filter((item) => {
     return item.photographerId === photographerId;
   });
@@ -34,38 +34,39 @@ const getLikesSum = (media) => {
 async function displayHeader(photographer) {
   const photographerHeader = document.querySelector(".photograph__header");
 
-  const userHeader = new UserHeader(photographer);
-  photographerHeader.appendChild(userHeader.getUserHeader());
+  const photoggrapherHeader = new PhotographerHeader(photographer);
+  photographerHeader.appendChild(photoggrapherHeader.getPhotographerHeader());
 }
 
-async function displayMedia(media) {
+async function displayMedias(medias) {
   const photographMedia = document.querySelector(".photograph__media");
 
-  media.forEach((item) => {
-    const userCard = new UserMediaCard(item);
-    photographMedia.appendChild(userCard.getUserMediaCard());
+  medias.forEach((item) => {
+    const photographerCard = new PhographerMediaCard(item);
+    photographMedia.appendChild(photographerCard.getPhotographerMediaCard());
   });
 }
 
-async function displayPhotographInfos(likes, photographer) {
-  const photographInfos = document.querySelector("#main");
+async function displayPhotographerInfos(likes, photographer) {
+  const photographerInfos = document.querySelector("#main");
 
-  photographInfos.appendChild(photographInfosView(likes, photographer.price));
+  photographerInfos.appendChild(
+    photographerInfosView(likes, photographer.price)
+  );
 }
 
 async function init() {
-  const { photographers, media } = await getPhotographers();
+  const { photographers, medias } = await getPhotographersData();
   const id = getId();
 
-  const photographer = getPhotographer(photographers, id);
-  const photographerMedia = getPhotographerMedia(media, id);
+  const photographer = new Photographer(getPhotographer(photographers, id));
+  const photographerMediasList = getPhotographerMedias(medias, id).map(
+    (item) => new Media(item)
+  );
 
-  const user = new Photographer(photographer);
-  const userMediaList = photographerMedia.map((item) => new Media(item));
-
-  displayHeader(user);
-  displayMedia(userMediaList);
-  displayPhotographInfos(getLikesSum(userMediaList), user);
+  displayHeader(photographer);
+  displayMedias(photographerMediasList);
+  displayPhotographerInfos(getLikesSum(photographerMediasList), photographer);
 }
 
 init();

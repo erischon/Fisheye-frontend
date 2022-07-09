@@ -38,7 +38,7 @@ export class Photographer {
     return `assets/photographers/${this._portrait}`;
   }
 
-  get userUrl() {
+  get photographerUrl() {
     return `${this._path}?id=${this._id}`;
   }
 }

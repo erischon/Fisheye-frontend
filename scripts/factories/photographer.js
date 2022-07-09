@@ -1,4 +1,4 @@
-import { getPhotographers } from "../utils/api.js";
+import { getPhotographersData } from "../services/api.js";
 // const API_URL = "data/photographers.json";
 
 const getId = () => {
@@ -6,16 +6,6 @@ const getId = () => {
   const id = parseInt(params.get("id"));
   return id;
 };
-
-// async function getPhotographers() {
-//   const response = await fetch(API_URL);
-
-//   if (!response.ok) {
-//     console.log("Error");
-//   }
-//   const photographers = response.json();
-//   return photographers;
-// }
 
 const getPhotographer = (photographers, photographerId) => {
   const photographer = photographers.filter((item) => {
@@ -36,15 +26,15 @@ async function displayData(photographer) {
 
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
-    const userCardDOM = photographerModel.getUserCardDOM();
-    photographersSection.appendChild(userCardDOM);
+    const photographerCard = photographerModel.getPhotographerCard();
+    photographersSection.appendChild(photographerCard);
   });
 }
 
 async function init() {
   const photographerId = getId();
-  const { photographers, media } = await getPhotographers();
-  const photographer = getPhotographer(photographers, photographerId);
+  const { photographers, media } = await getPhotographersData();
+  const photographer = getPhotographerData(photographers, photographerId);
   const photographerMedia = getPhotographerMedia(media, photographerId);
   console.log("photographer", photographer, "Media", photographerMedia);
   // console.log("data", photographer, media);
