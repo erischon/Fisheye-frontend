@@ -365,7 +365,7 @@ h1 {
   font-size: 1.5rem;
 }
 
-#contact_modal {
+#contactModal {
   display: none;
   position: fixed;
   top: 0;
@@ -405,14 +405,44 @@ h1 {
           animation-duration: 0.5s;
 }
 
-.modal header {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+@-webkit-keyframes modalopen {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-150px);
+            transform: translateX(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-150px);
+            transform: translateX(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 1rem;
   width: 100%;
 }
 
-.modal header img {
+header img {
   position: absolute;
   top: 2rem;
   right: 2rem;
@@ -420,10 +450,9 @@ h1 {
   cursor: pointer;
 }
 
-.modal header h2 {
+header h2 {
   font-size: 2.5rem;
   font-weight: normal;
-  text-align: center;
 }
 
 form {
@@ -470,6 +499,12 @@ form .form__data textarea {
   outline: none;
 }
 
+form .form__data input.data-error,
+form .form__data textarea.data-error {
+  border: 2px solid red;
+  background-color: #f0f0f0;
+}
+
 form button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -486,25 +521,30 @@ form button {
   cursor: pointer;
 }
 
-@-webkit-keyframes modalopen {
-  from {
-    opacity: 0;
-    -webkit-transform: translateX(-150px);
-            transform: translateX(-150px);
-  }
-  to {
-    opacity: 1;
-  }
+/* Errors */
+.form__data[data-error]::after {
+  display: block;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  content: attr(data-error);
+  font-size: 0.75rem;
+  color: #ffffff;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: right;
+  line-height: 0.3;
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 100%;
 }
 
-@keyframes modalopen {
-  from {
-    opacity: 0;
-    -webkit-transform: translateX(-150px);
-            transform: translateX(-150px);
-  }
-  to {
-    opacity: 1;
-  }
+.form__data[data-error-visible="true"]::after {
+  opacity: 1;
+}
+
+.form__data[data-error-visible="true"] .text-control {
+  border: 2px solid #e54858;
 }
 /*# sourceMappingURL=global.css.map */

@@ -2,7 +2,7 @@
 
 export const modalView = () => {
   const modal = document.createElement("div");
-  modal.setAttribute("id", "contact_modal");
+  modal.setAttribute("id", "contactModal");
 
   const modalContent = `
       <div class="modal">

@@ -60,7 +60,7 @@ async function displayPhotographerInfos(likes, photographer) {
 async function displayModalDOM() {
   const modal = document.querySelector("#main");
 
-  modal.appendChild(modalView());
+  // modal.appendChild(modalView());
 }
 
 async function headInfos(photographer) {
