@@ -1,3 +1,5 @@
+// import * as contactForm from "../utils/contactForm.util.js";
+
 export const modalView = () => {
   const modal = document.createElement("div");
   modal.setAttribute("id", "contact_modal");
@@ -9,28 +11,28 @@ export const modalView = () => {
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 
-        <form>
+        <form id="contact">
           <div class="form__data">
-            <label for="first">Prénom</label>
-            <input type="text" name="first"/>
+            <label for="firstName">Prénom</label>
+            <input type="text" id="firstName" name="firstName"/>
           </div>
 
           <div class="form__data">
-            <label for="last">Nom</label>
-            <input type="text" name="last"/>
+            <label for="lastName">Nom</label>
+            <input type="text" id="lastName" name="lastName"/>
           </div>
 
           <div class="form__data">
             <label for="email">Email</label>
-            <input type="email" name="email"/>
+            <input type="email" id="email" name="email"/>
           </div>
 
           <div class="form__data">
             <label for="message">Votre message</label>
-            <textarea name="message" rows="5"></textarea>
+            <textarea id="message" name="message" rows="5"></textarea>
           </div>
 
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" type="submit">Envoyer</button>
         </form>
       </div>
     `;

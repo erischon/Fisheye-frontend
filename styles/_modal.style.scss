@@ -37,11 +37,13 @@
     width: 100%;
 
     img {
-      cursor: pointer;
-      width: 1rem;
       position: absolute;
       top: 2rem;
       right: 2rem;
+
+      width: 1rem;
+
+      cursor: pointer;
     }
 
     h2 {
@@ -73,17 +75,11 @@ form {
       margin-bottom: 0.25rem;
     }
 
-    input {
-      width: 100%;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 5px;
-      outline: none;
-    }
-
+    input,
     textarea {
       width: 100%;
       padding: 0.75rem;
+      border: none;
       border-radius: 5px;
       outline: none;
     }
@@ -92,16 +88,19 @@ form {
   button {
     display: flex;
 
-    font-size: 1rem;
-    font-weight: 700;
-    background: #901c1c;
     margin-top: 1rem;
     padding: 1rem 3rem;
-    color: #fff;
-    cursor: pointer;
+
     border: none;
     border-radius: 5px;
     outline: none;
+    background: #901c1c;
+
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+
+    cursor: pointer;
   }
 }
 

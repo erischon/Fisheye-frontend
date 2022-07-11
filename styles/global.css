@@ -212,17 +212,15 @@ h1 {
 }
 
 .photograph-header button {
+  padding: 1rem 2rem;
+  margin: 0 auto;
+  border: none;
+  border-radius: 5px;
+  background-color: #901c1c;
   font-size: 1.25rem;
   font-weight: 700;
   color: white;
-  padding: 11px;
-  width: 170px;
-  height: 70px;
-  border: none;
-  background-color: #901c1c;
-  border-radius: 5px;
   cursor: pointer;
-  margin: 0 auto;
 }
 
 .photograph-header img {
@@ -415,11 +413,11 @@ h1 {
 }
 
 .modal header img {
-  cursor: pointer;
-  width: 1rem;
   position: absolute;
   top: 2rem;
   right: 2rem;
+  width: 1rem;
+  cursor: pointer;
 }
 
 .modal header h2 {
@@ -463,17 +461,11 @@ form .form__data label {
   margin-bottom: 0.25rem;
 }
 
-form .form__data input {
-  width: 100%;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-}
-
+form .form__data input,
 form .form__data textarea {
   width: 100%;
   padding: 0.75rem;
+  border: none;
   border-radius: 5px;
   outline: none;
 }
@@ -482,16 +474,16 @@ form button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 1rem;
-  font-weight: 700;
-  background: #901c1c;
   margin-top: 1rem;
   padding: 1rem 3rem;
-  color: #fff;
-  cursor: pointer;
   border: none;
   border-radius: 5px;
   outline: none;
+  background: #901c1c;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
 }
 
 @-webkit-keyframes modalopen {
