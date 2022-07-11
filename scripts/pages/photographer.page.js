@@ -1,9 +1,11 @@
 import { getPhotographersData } from "../services/api.js";
 import { Photographer } from "../models/photographer.model.js";
 import { Media } from "../models/media.model.js";
+
 import { PhotographerHeader } from "../views/photographerHeader.view.js";
 import { PhographerMediaCard } from "../views/photographerMediaCard.view.js";
 import { photographerInfosView } from "../views/photographerInfos.view.js";
+import { modalView } from "../views/modal.view.js";
 
 const getId = () => {
   const params = new URLSearchParams(window.location.search);
@@ -55,6 +57,12 @@ async function displayPhotographerInfos(likes, photographer) {
   );
 }
 
+async function displayModalDOM() {
+  const modal = document.querySelector("#main");
+
+  modal.appendChild(modalView());
+}
+
 async function headInfos(photographer) {
   const head = document.head;
   const title = `Fisheye - ${photographer.name}`;
@@ -83,6 +91,7 @@ async function init() {
   displayHeader(photographer);
   displayMedias(photographerMediasList);
   displayPhotographerInfos(getLikesSum(photographerMediasList), photographer);
+  displayModalDOM();
 }
 
 init();
