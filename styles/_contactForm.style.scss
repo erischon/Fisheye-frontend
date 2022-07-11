@@ -1,4 +1,4 @@
-header {
+.contact-form__header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -80,24 +80,20 @@ form {
 /* Errors */
 
 .form__data[data-error]::after {
+  content: attr(data-error);
+
   display: block;
   justify-content: right;
-  content: attr(data-error);
-  font-size: 0.75rem;
-  color: #ffffff;
+
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+  width: 100%;
+
+  font-size: 0.75rem;
+  color: #ffffff;
   text-align: right;
   line-height: 0.3;
+
   opacity: 1;
   transition: 0.3s;
-  width: 100%;
-}
-
-.form__data[data-error-visible="true"]::after {
-  opacity: 1;
-}
-
-.form__data[data-error-visible="true"] .text-control {
-  border: 2px solid #e54858;
 }
