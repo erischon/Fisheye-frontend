@@ -539,4 +539,107 @@ form button {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 10;
+  overflow: auto;
+  -webkit-animation: lightboxIn 0.5s;
+          animation: lightboxIn 0.5s;
+}
+
+.lightbox button {
+  opacity: 1;
+  text-indent: -4000px;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.lightbox button:hover {
+  opacity: 0.5;
+}
+
+.lightbox__next,
+.lightbox__prev {
+  background: url(../assets/images/arrow.svg) center center/100% 100% no-repeat;
+  width: 1.5rem;
+  height: 2.25rem;
+  border: none;
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  margin-top: -1.125rem;
+  z-index: 11;
+}
+
+.lightbox__prev {
+  right: auto;
+  left: 2rem;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.lightbox__close {
+  background: url(../assets/images/close.svg) center center/100% 100% no-repeat transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  z-index: 12;
+}
+
+.lightbox__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 50px;
+  min-height: 100vh;
+}
+
+.lightbox__container img {
+  max-width: 100%;
+  height: auto;
+  -webkit-animation: lightboxIn 0.5s;
+          animation: lightboxIn 0.5s;
+}
+
+@-webkit-keyframes lightboxIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
 /*# sourceMappingURL=global.css.map */
