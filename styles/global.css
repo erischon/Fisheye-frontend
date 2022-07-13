@@ -542,6 +542,15 @@ form button {
 }
 
 .lightbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -563,13 +572,16 @@ form button {
   opacity: 0.5;
 }
 
-.lightbox__wrapper {
-  position: relative;
-}
-
 .lightbox.fadeOut {
   opacity: 0;
   display: none;
+}
+
+.lightbox__wrapper {
+  position: relative;
+  max-width: 1040px;
+  width: 95%;
+  margin: auto;
 }
 
 .lightbox__next,
@@ -580,14 +592,14 @@ form button {
   border: none;
   position: absolute;
   top: 50%;
-  right: 11.75rem;
+  right: 3rem;
   margin-top: -1.125rem;
   z-index: 11;
 }
 
 .lightbox__prev {
   right: auto;
-  left: 11.75rem;
+  left: 3rem;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
@@ -598,8 +610,8 @@ form button {
   height: 1.5rem;
   border: none;
   position: absolute;
-  top: 0;
-  right: 11.75rem;
+  top: 2rem;
+  right: 3rem;
   z-index: 12;
 }
 
@@ -618,13 +630,15 @@ form button {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  margin: 2rem 12rem;
-  min-height: 100vh;
+  margin: 2rem 6rem;
+  max-width: 100%;
+  min-height: 100%;
 }
 
 .lightbox__container img {
   max-width: 1040px;
   max-height: 1040px;
+  width: 100%;
   height: auto;
 }
 
