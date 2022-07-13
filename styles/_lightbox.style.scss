@@ -8,6 +8,8 @@
   z-index: 10;
   overflow: auto;
 
+  padding: 62px 195px;
+
   animation: lightboxIn 0.5s;
 
   button {
@@ -19,6 +21,11 @@
 
   button:hover {
     opacity: 0.5;
+  }
+
+  &.fadeOut {
+    opacity: 0;
+    display: none;
   }
 }
 
@@ -38,7 +45,7 @@
 
 .lightbox__prev {
   right: auto;
-  left: 2rem;
+  left: 1rem;
   transform: rotate(180deg);
 }
 
@@ -59,7 +66,6 @@
   justify-content: center;
   align-items: center;
 
-  margin: 50px;
   min-height: 100vh;
 
   img {
@@ -70,6 +76,13 @@
   }
 }
 
+.lightbox__loader {
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.75;
+  background: url("../assets/images/loader.svg") center center no-repeat;
+}
+
 @keyframes lightboxIn {
   from {
     opacity: 0;
@@ -78,5 +91,17 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/*=============== For tablet devices ===============*/
+
+@media screen and (max-width: 992px) {
+  .lightbox {
+    padding: 0;
+  }
+
+  .lightbox__container {
+    margin: 50px;
   }
 }

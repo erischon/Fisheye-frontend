@@ -26,7 +26,7 @@ export class PhotographerHeader {
             Contactez-moi
           </button>
 
-          <img src="${this._portrait}" alt="${this._name}" class="photographer-header__img">
+          <img src="${this._portrait}" alt="${this._name}" class="photographer-header__portrait">
 
         
       `;

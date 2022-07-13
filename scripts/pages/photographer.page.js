@@ -34,14 +34,14 @@ const getLikesSum = (media) => {
   }, 0);
 };
 
-async function displayHeader(photographer) {
+function displayHeader(photographer) {
   const photographerHeader = document.querySelector(".photograph__header");
 
   const photoggrapherHeader = new PhotographerHeader(photographer);
   photographerHeader.appendChild(photoggrapherHeader.getPhotographerHeader());
 }
 
-async function displayMedias(medias) {
+function displayMedias(medias) {
   const photographMedia = document.querySelector(".photograph__media");
 
   medias.forEach((item) => {
@@ -50,7 +50,7 @@ async function displayMedias(medias) {
   });
 }
 
-async function displayPhotographerInfos(likes, photographer) {
+function displayPhotographerInfos(likes, photographer) {
   const photographerInfos = document.querySelector("#main");
 
   photographerInfos.appendChild(
@@ -58,13 +58,13 @@ async function displayPhotographerInfos(likes, photographer) {
   );
 }
 
-async function displayModalDOM() {
+function displayModalDOM() {
   const modal = document.querySelector("#main");
 
   // modal.appendChild(modalView());
 }
 
-async function headInfos(photographer) {
+function headInfos(photographer) {
   const head = document.head;
   const title = `Fisheye - ${photographer.name}`;
   const description = `Fisheye - ${photographer.name}, ${photographer.tagline}`;
@@ -93,7 +93,7 @@ async function init() {
   displayMedias(photographerMediasList);
   displayPhotographerInfos(getLikesSum(photographerMediasList), photographer);
   displayModalDOM();
-  new Lightbox();
+  Lightbox.init();
 }
 
 init();

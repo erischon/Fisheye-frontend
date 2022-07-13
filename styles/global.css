@@ -267,6 +267,7 @@ h1 {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .photograph__media .photograph-media-card video {
@@ -549,6 +550,7 @@ form button {
   background-color: white;
   z-index: 10;
   overflow: auto;
+  padding: 62px 195px;
   -webkit-animation: lightboxIn 0.5s;
           animation: lightboxIn 0.5s;
 }
@@ -563,6 +565,11 @@ form button {
 
 .lightbox button:hover {
   opacity: 0.5;
+}
+
+.lightbox.fadeOut {
+  opacity: 0;
+  display: none;
 }
 
 .lightbox__next,
@@ -580,7 +587,7 @@ form button {
 
 .lightbox__prev {
   right: auto;
-  left: 2rem;
+  left: 1rem;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
@@ -606,7 +613,6 @@ form button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 50px;
   min-height: 100vh;
 }
 
@@ -615,6 +621,13 @@ form button {
   height: auto;
   -webkit-animation: lightboxIn 0.5s;
           animation: lightboxIn 0.5s;
+}
+
+.lightbox__loader {
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.75;
+  background: url("../assets/images/loader.svg") center center no-repeat;
 }
 
 @-webkit-keyframes lightboxIn {
@@ -640,6 +653,16 @@ form button {
     opacity: 1;
     -webkit-transform: translateY(0);
             transform: translateY(0);
+  }
+}
+
+/*=============== For tablet devices ===============*/
+@media screen and (max-width: 992px) {
+  .lightbox {
+    padding: 0;
+  }
+  .lightbox__container {
+    margin: 50px;
   }
 }
 /*# sourceMappingURL=global.css.map */
