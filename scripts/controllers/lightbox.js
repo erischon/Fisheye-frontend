@@ -45,6 +45,10 @@ export class Lightbox {
   onKeyUp(e) {
     if (e.key === "Escape" || e.key === "Esc") {
       this.close(e);
+    } else if (e.key === "ArrowLeft") {
+      this.prev(e);
+    } else if (e.key === "ArrowRight") {
+      this.next(e);
     }
   }
 
@@ -109,7 +113,11 @@ export class Lightbox {
   prev(e) {
     e.preventDefault();
 
-    debugger;
+    let i = this.images.findIndex((image) => image === this.url);
+    if (i === 0) {
+      i = this.images.length;
+    }
+    this.loadImage(this.images[i - 1]);
   }
 
   /**
