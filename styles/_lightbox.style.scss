@@ -8,19 +8,21 @@
   z-index: 10;
   overflow: auto;
 
-  padding: 62px 195px;
-
-  animation: lightboxIn 0.5s;
-
   button {
     opacity: 1;
-    text-indent: -4000px;
     transition: opacity 0.3s;
     cursor: pointer;
   }
 
   button:hover {
     opacity: 0.5;
+  }
+
+  &__wrapper {
+    position: relative;
+
+    // margin: 1rem 3rem;
+    // overflow: hidden;
   }
 
   &.fadeOut {
@@ -36,16 +38,18 @@
   width: 1.5rem;
   height: 2.25rem;
   border: none;
-  position: fixed;
+
+  position: absolute;
   top: 50%;
-  right: 2rem;
+  right: 11.75rem;
+
   margin-top: -1.125rem;
   z-index: 11;
 }
 
 .lightbox__prev {
   right: auto;
-  left: 1rem;
+  left: 11.75rem;
   transform: rotate(180deg);
 }
 
@@ -55,25 +59,37 @@
   width: 1.5rem;
   height: 1.5rem;
   border: none;
-  position: fixed;
-  top: 1rem;
-  right: 2rem;
+  position: absolute;
+  top: 0;
+  right: 11.75rem;
   z-index: 12;
 }
 
 .lightbox__container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  position: relative;
+
+  margin: 2rem 12rem;
   min-height: 100vh;
 
   img {
-    max-width: 100%;
-    height: auto;
+    max-width: 1040px;
+    max-height: 1040px;
 
-    animation: lightboxIn 0.5s;
+    height: auto;
   }
+}
+
+.lightbox__title {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 1040px;
+  font-size: 1.5rem;
+  color: #901c1c;
 }
 
 .lightbox__loader {
@@ -83,25 +99,24 @@
   background: url("../assets/images/loader.svg") center center no-repeat;
 }
 
-@keyframes lightboxIn {
-  from {
-    opacity: 0;
-    transform: translateY(-1000px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+// @keyframes lightboxIn {
+//   from {
+//     opacity: 0;
+//     transform: translateY(-1000px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
 
 /*=============== For tablet devices ===============*/
 
-@media screen and (max-width: 992px) {
-  .lightbox {
-    padding: 0;
-  }
+@media screen and (min-width: 1024px) {
+  // .lightbox {
+  // }
 
-  .lightbox__container {
-    margin: 50px;
-  }
+  // .lightbox__container {
+  //   margin: 50px;
+  // }
 }

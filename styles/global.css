@@ -550,14 +550,10 @@ form button {
   background-color: white;
   z-index: 10;
   overflow: auto;
-  padding: 62px 195px;
-  -webkit-animation: lightboxIn 0.5s;
-          animation: lightboxIn 0.5s;
 }
 
 .lightbox button {
   opacity: 1;
-  text-indent: -4000px;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   cursor: pointer;
@@ -565,6 +561,10 @@ form button {
 
 .lightbox button:hover {
   opacity: 0.5;
+}
+
+.lightbox__wrapper {
+  position: relative;
 }
 
 .lightbox.fadeOut {
@@ -578,16 +578,16 @@ form button {
   width: 1.5rem;
   height: 2.25rem;
   border: none;
-  position: fixed;
+  position: absolute;
   top: 50%;
-  right: 2rem;
+  right: 11.75rem;
   margin-top: -1.125rem;
   z-index: 11;
 }
 
 .lightbox__prev {
   right: auto;
-  left: 1rem;
+  left: 11.75rem;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
@@ -597,9 +597,9 @@ form button {
   width: 1.5rem;
   height: 1.5rem;
   border: none;
-  position: fixed;
-  top: 1rem;
-  right: 2rem;
+  position: absolute;
+  top: 0;
+  right: 11.75rem;
   z-index: 12;
 }
 
@@ -607,20 +607,33 @@ form button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  margin: 2rem 12rem;
   min-height: 100vh;
 }
 
 .lightbox__container img {
-  max-width: 100%;
+  max-width: 1040px;
+  max-height: 1040px;
   height: auto;
-  -webkit-animation: lightboxIn 0.5s;
-          animation: lightboxIn 0.5s;
+}
+
+.lightbox__title {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 1040px;
+  font-size: 1.5rem;
+  color: #901c1c;
 }
 
 .lightbox__loader {
@@ -630,39 +643,5 @@ form button {
   background: url("../assets/images/loader.svg") center center no-repeat;
 }
 
-@-webkit-keyframes lightboxIn {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(-1000px);
-            transform: translateY(-1000px);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes lightboxIn {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(-1000px);
-            transform: translateY(-1000px);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
 /*=============== For tablet devices ===============*/
-@media screen and (max-width: 992px) {
-  .lightbox {
-    padding: 0;
-  }
-  .lightbox__container {
-    margin: 50px;
-  }
-}
 /*# sourceMappingURL=global.css.map */

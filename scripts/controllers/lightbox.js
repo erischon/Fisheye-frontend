@@ -29,10 +29,10 @@ export class Lightbox {
    */
   constructor(url, images, imagesTitles) {
     this.element = this.buildDom(url);
-    this.loadImage(url);
     this.images = images;
     this.imagesTitles = imagesTitles;
     this.onKeyUp = this.onKeyUp.bind(this);
+    this.loadImage(url);
 
     document.body.appendChild(this.element);
     document.addEventListener("keyup", this.onKeyUp);
@@ -61,15 +61,22 @@ export class Lightbox {
     const image = new Image();
     const container = this.element.querySelector(".lightbox__container");
 
+    // Loader
     const loader = document.createElement("div");
     loader.classList.add("lightbox__loader");
-
     container.innerHTML = "";
     container.appendChild(loader);
+
+    // Image Title
+    const i = this.images.findIndex((image) => image === url);
+    const imageTitle = document.createElement("p");
+    imageTitle.classList.add("lightbox__title");
+    imageTitle.textContent = this.imagesTitles[i];
 
     image.onload = () => {
       container.removeChild(loader);
       container.appendChild(image);
+      container.appendChild(imageTitle);
       this.url = url;
     };
 
@@ -93,7 +100,7 @@ export class Lightbox {
   }
 
   /**
-   *
+   * Go to next image
    * @param {MouseEvent|KeyboardEvent} e
    */
   next(e) {
@@ -107,7 +114,7 @@ export class Lightbox {
   }
 
   /**
-   *
+   * Go to previous image
    * @param {MouseEvent|KeyboardEvent} e
    */
   prev(e) {
@@ -130,12 +137,12 @@ export class Lightbox {
 
     dom.classList.add("lightbox");
     dom.innerHTML = `
-        <button class="lightbox__close">Fermer</button>
-        <button class="lightbox__next">Suivant</button>
-        <button class="lightbox__prev">Précédent</button>
-        <div class="lightbox__container">
-            <p>imageTitle</p>
-        </div>
+      <div class="lightbox__wrapper">
+        <button class="lightbox__close"></button>
+        <button class="lightbox__next"></button>
+        <button class="lightbox__prev"></button>
+        <div class="lightbox__container"></div>
+      </div>
     `;
     dom
       .querySelector(".lightbox__close")
