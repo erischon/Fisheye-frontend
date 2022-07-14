@@ -7,7 +7,6 @@ import { PhographerMediaCard } from "../views/photographerMediaCard.view.js";
 import { photographerInfosView } from "../views/photographerInfos.view.js";
 import { modalView } from "../views/modal.view.js";
 import { Lightbox } from "../controllers/lightbox.controller.js";
-import { Likes } from "../controllers/likes.controller.js";
 
 const getId = () => {
   const params = new URLSearchParams(window.location.search);
@@ -51,7 +50,7 @@ function displayMedias(medias) {
   });
 }
 
-function displayPhotographerInfos(likes, photographer) {
+export function displayPhotographerInfos(likes, photographer) {
   const photographerInfos = document.querySelector("#main");
 
   photographerInfos.appendChild(

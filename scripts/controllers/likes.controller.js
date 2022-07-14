@@ -1,10 +1,11 @@
 /**
- * @property {Object} photographer
+ * @property {Object} media
  */
-
-export class Likes {
-  constructor(photographer) {
-    this._likes = photographer.likes;
+export class NumberOfLikes {
+  constructor(media, dom) {
+    this.currentLikes = media.likes;
+    this.dom = dom;
+    this.count = 0;
   }
 
   /**
@@ -18,30 +19,33 @@ export class Likes {
   }
 
   /**
-   *
+   * Add one like to a media and to the sum of photographer total likes
    */
   addLike() {
-    let count = 0;
-    if (count++ >= 1) return;
-    // setLike(this._like + 1);
-    this._likes++;
-    console.log("Likes", this._likes++);
+    if (this.count >= 1) {
+      return;
+    }
+
+    this.currentLikes++;
+    this.count++;
+
+    // Updating sum of media likes
+    const likeNumber = this.dom.querySelector(".like__number");
+    likeNumber.innerText = this.currentLikes;
+
+    // Updating sum of photographer total likes
+    const likeSumEl = document.querySelector(
+      "article.photograph-infos .like__number"
+    );
+    const likeSum = likeSumEl.innerText;
+    likeSumEl.innerText = parseInt(likeSumEl.innerText) + 1;
   }
 
   /**
    *
-   * @returns {HTMLElement}
+   * @returns {Integer}
    */
-  buildDom() {
-    const dom = document.createElement("div");
-
-    dom.innerHTML = `
-        <div class="like__container">
-            <span class="like__number">${this._likes}</span>
-            <span class="material-symbols-outlined like__icon">favorite</span>
-        </div>
-    `;
-
-    return dom;
+  getNumberOfLikes(currentLikes = this.currentLikes) {
+    return currentLikes;
   }
 }

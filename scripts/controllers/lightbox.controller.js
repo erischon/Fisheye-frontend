@@ -8,7 +8,10 @@
 export class Lightbox {
   static init() {
     const links = Array.from(
-      document.querySelectorAll(".photographer-header__img")
+      document.querySelectorAll(
+        ".photographer-header__img"
+        // ".photographer-header__img, .photographer-header__video"
+      )
     );
 
     const images = links.map((link) => link.getAttribute("src"));

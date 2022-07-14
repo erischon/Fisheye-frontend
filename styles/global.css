@@ -309,6 +309,7 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
 }
 
 .photograph__media .photograph-media-card .desc__wrapper .like__container .like__number {

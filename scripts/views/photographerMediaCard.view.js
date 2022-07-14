@@ -1,4 +1,4 @@
-import { Likes } from "../controllers/likes.controller.js";
+import { NumberOfLikes } from "../controllers/likes.controller.js";
 
 export class PhographerMediaCard {
   constructor(data) {
@@ -9,8 +9,7 @@ export class PhographerMediaCard {
     this._video = data.video;
     this._date = data.date;
     this._price = data.price;
-
-    this._likes = new Likes(data);
+    this._data = data;
   }
 
   getPhotographerMediaCard() {
@@ -22,21 +21,24 @@ export class PhographerMediaCard {
     if (this._image) {
       media = `<img src="${this._image}" alt="${this._title}" class="photographer-header__img">`;
     } else if (this._video) {
-      media = `<video controls><source src="${this._video}" type="video/mp4"></video>`;
+      media = `<video controls class="photographer-header__video"><source src="${this._video}" type="video/mp4"></video>`;
     }
 
-    const likeHtml = this._likes.buildDom().innerHTML;
+    const numberOfLikes = new NumberOfLikes(this._data, article);
 
     const photographerMediaCard = `
           ${media}
           <div class="desc__wrapper">
             <p class="desc__title">${this._title}</p>
-            ${likeHtml}
+            <div class="like__container">
+              <span class="like__number">${numberOfLikes.getNumberOfLikes()}</span>
+              <span class="material-symbols-outlined like__icon">favorite</span>
+            </div>
           </div>
     `;
 
     article.innerHTML = photographerMediaCard;
-    this._likes.addEvent(article);
+    numberOfLikes.addEvent(article);
 
     return article;
   }
