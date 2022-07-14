@@ -1,3 +1,5 @@
+import { Likes } from "../controllers/likes.controller.js";
+
 export class PhographerMediaCard {
   constructor(data) {
     this._id = data.id;
@@ -5,9 +7,11 @@ export class PhographerMediaCard {
     this._title = data.title;
     this._image = data.image;
     this._video = data.video;
-    this._likes = data.likes;
+    // this._likes = data.likes;
     this._date = data.date;
     this._price = data.price;
+
+    this._like = new Likes(data).buildHtml();
   }
 
   getPhotographerMediaCard() {
@@ -27,11 +31,7 @@ export class PhographerMediaCard {
           ${media}
           <div class="desc__wrapper">
             <p class="desc__title">${this._title}</p>
-
-            <div class="likes__container">
-              <span class="likes__number">${this._likes}</span>
-              <span class="material-symbols-outlined likes__icon">favorite</span>
-            </div>
+            ${this._like}
           </div>
      
     `;

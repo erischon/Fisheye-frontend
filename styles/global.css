@@ -299,7 +299,7 @@ h1 {
   white-space: nowrap;
 }
 
-.photograph__media .photograph-media-card .desc__wrapper .likes__container {
+.photograph__media .photograph-media-card .desc__wrapper .like__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -311,13 +311,13 @@ h1 {
           align-items: center;
 }
 
-.photograph__media .photograph-media-card .desc__wrapper .likes__container .likes__number {
+.photograph__media .photograph-media-card .desc__wrapper .like__container .like__number {
   font-size: 1rem;
   margin-right: 0.35rem;
   color: #000000;
 }
 
-.photograph__media .photograph-media-card .desc__wrapper .likes__container .likes__icon {
+.photograph__media .photograph-media-card .desc__wrapper .like__container .like__icon {
   font-size: 1rem;
 }
 
@@ -340,7 +340,7 @@ h1 {
   border-radius: 5px;
 }
 
-.photograph-infos .likes__container {
+.photograph-infos .like__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -352,13 +352,13 @@ h1 {
           align-items: center;
 }
 
-.photograph-infos .likes__container .likes__number {
+.photograph-infos .like__container .like__number {
   font-size: 1.5rem;
   margin-right: 0.35rem;
   color: #000000;
 }
 
-.photograph-infos .likes__container .likes__icon {
+.photograph-infos .like__container .like__icon {
   font-size: 1.5rem;
 }
 

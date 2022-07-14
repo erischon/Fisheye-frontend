@@ -107,18 +107,18 @@
         white-space: nowrap;
       }
 
-      .likes__container {
+      .like__container {
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        .likes__number {
+        .like__number {
           font-size: 1rem;
           margin-right: 0.35rem;
           color: #000000;
         }
 
-        .likes__icon {
+        .like__icon {
           font-size: 1rem;
         }
       }
@@ -144,18 +144,18 @@
   background-color: #db8876;
   border-radius: 5px;
 
-  .likes__container {
+  .like__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    .likes__number {
+    .like__number {
       font-size: 1.5rem;
       margin-right: 0.35rem;
       color: #000000;
     }
 
-    .likes__icon {
+    .like__icon {
       font-size: 1.5rem;
     }
   }

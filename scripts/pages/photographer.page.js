@@ -6,7 +6,7 @@ import { PhotographerHeader } from "../views/photographerHeader.view.js";
 import { PhographerMediaCard } from "../views/photographerMediaCard.view.js";
 import { photographerInfosView } from "../views/photographerInfos.view.js";
 import { modalView } from "../views/modal.view.js";
-import { Lightbox } from "../controllers/lightbox.js";
+import { Lightbox } from "../controllers/lightbox.controller.js";
 
 const getId = () => {
   const params = new URLSearchParams(window.location.search);
