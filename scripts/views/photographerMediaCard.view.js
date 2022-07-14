@@ -7,11 +7,10 @@ export class PhographerMediaCard {
     this._title = data.title;
     this._image = data.image;
     this._video = data.video;
-    // this._likes = data.likes;
     this._date = data.date;
     this._price = data.price;
 
-    this._like = new Likes(data);
+    this._likes = new Likes(data);
   }
 
   getPhotographerMediaCard() {
@@ -26,7 +25,7 @@ export class PhographerMediaCard {
       media = `<video controls><source src="${this._video}" type="video/mp4"></video>`;
     }
 
-    const likeHtml = this._like.buildDom().innerHTML;
+    const likeHtml = this._likes.buildDom().innerHTML;
 
     const photographerMediaCard = `
           ${media}
@@ -37,7 +36,7 @@ export class PhographerMediaCard {
     `;
 
     article.innerHTML = photographerMediaCard;
-    this._like.addEvent(article);
+    this._likes.addEvent(article);
 
     return article;
   }
