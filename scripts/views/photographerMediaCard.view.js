@@ -11,7 +11,7 @@ export class PhographerMediaCard {
     this._date = data.date;
     this._price = data.price;
 
-    this._like = new Likes(data).buildHtml();
+    this._like = new Likes(data);
   }
 
   getPhotographerMediaCard() {
@@ -26,17 +26,18 @@ export class PhographerMediaCard {
       media = `<video controls><source src="${this._video}" type="video/mp4"></video>`;
     }
 
+    const likeHtml = this._like.buildDom().innerHTML;
+
     const photographerMediaCard = `
-     
           ${media}
           <div class="desc__wrapper">
             <p class="desc__title">${this._title}</p>
-            ${this._like}
+            ${likeHtml}
           </div>
-     
     `;
 
     article.innerHTML = photographerMediaCard;
+    this._like.addEvent(article);
 
     return article;
   }
