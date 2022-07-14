@@ -24,6 +24,7 @@ export class Likes {
     let count = 0;
     if (count++ >= 1) return;
     // setLike(this._like + 1);
+    this._likes++;
     console.log("Likes", this._likes++);
   }
 
