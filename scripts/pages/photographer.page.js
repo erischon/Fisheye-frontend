@@ -21,11 +21,34 @@ const getPhotographer = (photographers, photographerId) => {
   return photographer;
 };
 
-const getPhotographerMedias = (data, photographerId) => {
+const getPhotographerMedias = (data, photographerId, sortedBy) => {
   const media = data.filter((item) => {
     return item.photographerId === photographerId;
   });
-  return media;
+
+  switch (sortedBy) {
+    case "likes":
+      // Sorted by likes (descending)
+      return media.sort(function (a, b) {
+        return b.likes - a.likes;
+      });
+    case "title":
+      // Sorted by title (alphabetical)
+      return media.sort(function (a, b) {
+        var titleA = a.title;
+        var titleB = b.title;
+        return titleA < titleB ? -1 : titleA > titleB ? 1 : 0;
+      });
+    default:
+      // Sorted by date (descending)
+      media.sort(function (a, b) {
+        var dateA = a.date;
+        var dateB = b.date;
+        return dateB < dateA ? -1 : dateB > dateA ? 1 : 0;
+      });
+      console.log(media);
+      return media;
+  }
 };
 
 const getLikesSum = (media) => {
@@ -42,7 +65,7 @@ function displayHeader(photographer) {
 }
 
 function displayMedias(medias) {
-  const photographMedia = document.querySelector(".photograph__media");
+  const photographMedia = document.querySelector(".media__grid");
 
   medias.forEach((item) => {
     const photographerCard = new PhographerMediaCard(item);
