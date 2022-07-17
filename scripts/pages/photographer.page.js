@@ -21,34 +21,12 @@ const getPhotographer = (photographers, photographerId) => {
   return photographer;
 };
 
-const getPhotographerMedias = (data, photographerId, sortedBy) => {
+const getPhotographerMedias = (data, photographerId) => {
   const media = data.filter((item) => {
     return item.photographerId === photographerId;
   });
 
-  switch (sortedBy) {
-    case "likes":
-      // Sorted by likes (descending)
-      return media.sort(function (a, b) {
-        return b.likes - a.likes;
-      });
-    case "title":
-      // Sorted by title (alphabetical)
-      return media.sort(function (a, b) {
-        var titleA = a.title;
-        var titleB = b.title;
-        return titleA < titleB ? -1 : titleA > titleB ? 1 : 0;
-      });
-    default:
-      // Sorted by date (descending)
-      media.sort(function (a, b) {
-        var dateA = a.date;
-        var dateB = b.date;
-        return dateB < dateA ? -1 : dateB > dateA ? 1 : 0;
-      });
-      console.log(media);
-      return media;
-  }
+  return media;
 };
 
 const getLikesSum = (media) => {
@@ -66,6 +44,7 @@ function displayHeader(photographer) {
 
 function displayMedias(medias) {
   const photographMedia = document.querySelector(".media__grid");
+  photographMedia.replaceChildren();
 
   medias.forEach((item) => {
     const photographerCard = new PhographerMediaCard(item);
@@ -102,6 +81,50 @@ function headInfos(photographer) {
   document.title = title;
 }
 
+function sortEventListener(photographerMediasList) {
+  const dom = document
+    .getElementById("sortSelector")
+    .addEventListener("change", (event) => {
+      sorting(photographerMediasList, event.target.value);
+    });
+}
+
+function sorting(mediaList, type) {
+  switch (type) {
+    case "likes":
+      // Sorted by likes (descending)
+      mediaList.sort(function (a, b) {
+        return b._likes - a._likes;
+      });
+      break;
+    case "title":
+      // Sorted by title (alphabetical)
+      mediaList.sort(function (a, b) {
+        var titleA = a._title;
+        var titleB = b._title;
+        return titleA < titleB ? -1 : titleA > titleB ? 1 : 0;
+      });
+      break;
+    case "date":
+      // Sorted by date (descending)
+      mediaList.sort(function (a, b) {
+        var dateA = a._date;
+        var dateB = b._date;
+        return dateB < dateA ? -1 : dateB > dateA ? 1 : 0;
+      });
+      break;
+    default:
+      // Sorted by date (descending)
+      mediaList.sort(function (a, b) {
+        var dateA = a._date;
+        var dateB = b._date;
+        return dateB < dateA ? -1 : dateB > dateA ? 1 : 0;
+      });
+  }
+
+  displayMedias(mediaList);
+}
+
 async function init() {
   const { photographers, medias } = await getPhotographersData();
   const id = getId();
@@ -110,10 +133,12 @@ async function init() {
   const photographerMediasList = getPhotographerMedias(medias, id).map(
     (item) => new Media(item)
   );
+  // console.log("media liste", photographerMediasList);
 
   headInfos(photographer);
   displayHeader(photographer);
   displayMedias(photographerMediasList);
+  sortEventListener(photographerMediasList);
   displayPhotographerInfos(getLikesSum(photographerMediasList), photographer);
   displayModalDOM();
   Lightbox.init();
