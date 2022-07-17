@@ -8,12 +8,22 @@ import { photographerInfosView } from "../views/photographerInfos.view.js";
 import { modalView } from "../views/modal.view.js";
 import { Lightbox } from "../controllers/lightbox.controller.js";
 
+/**
+ * Get the id of photographer
+ * @returns { number }
+ */
 const getId = () => {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get("id"));
   return id;
 };
 
+/**
+ * Get the photographer
+ * @param { object[]} photographers List of photographer object
+ * @param { number } photographerId
+ * @returns { object } A photographer object
+ */
 const getPhotographer = (photographers, photographerId) => {
   const photographer = photographers.filter((item) => {
     return item.id === photographerId;
@@ -21,6 +31,12 @@ const getPhotographer = (photographers, photographerId) => {
   return photographer;
 };
 
+/**
+ * Get the list of photographer's media
+ * @param { object[]} data List of media object
+ * @param { number } photographerId
+ * @returns { object[]} List of photographer's media object
+ */
 const getPhotographerMedias = (data, photographerId) => {
   const media = data.filter((item) => {
     return item.photographerId === photographerId;
@@ -29,12 +45,21 @@ const getPhotographerMedias = (data, photographerId) => {
   return media;
 };
 
+/**
+ *
+ * @param {*} media
+ * @returns
+ */
 const getLikesSum = (media) => {
   return media.reduce((accumulator, object) => {
     return accumulator + object.likes;
   }, 0);
 };
 
+/**
+ *
+ * @param {*} photographer
+ */
 function displayHeader(photographer) {
   const photographerHeader = document.querySelector(".photograph__header");
 
@@ -42,6 +67,10 @@ function displayHeader(photographer) {
   photographerHeader.appendChild(photoggrapherHeader.getPhotographerHeader());
 }
 
+/**
+ *
+ * @param {*} medias
+ */
 function displayMedias(medias) {
   const photographMedia = document.querySelector(".media__grid");
   photographMedia.replaceChildren();
@@ -50,8 +79,15 @@ function displayMedias(medias) {
     const photographerCard = new PhographerMediaCard(item);
     photographMedia.appendChild(photographerCard.getPhotographerMediaCard());
   });
+
+  Lightbox.init();
 }
 
+/**
+ *
+ * @param {*} likes
+ * @param {*} photographer
+ */
 export function displayPhotographerInfos(likes, photographer) {
   const photographerInfos = document.querySelector("#main");
 
@@ -60,12 +96,19 @@ export function displayPhotographerInfos(likes, photographer) {
   );
 }
 
+/**
+ *
+ */
 function displayModalDOM() {
   const modal = document.querySelector("#main");
 
   // modal.appendChild(modalView());
 }
 
+/**
+ *
+ * @param {*} photographer
+ */
 function headInfos(photographer) {
   const head = document.head;
   const title = `Fisheye - ${photographer.name}`;
@@ -81,6 +124,10 @@ function headInfos(photographer) {
   document.title = title;
 }
 
+/**
+ *
+ * @param {*} photographerMediasList
+ */
 function sortEventListener(photographerMediasList) {
   const dom = document
     .getElementById("sortSelector")
@@ -89,6 +136,11 @@ function sortEventListener(photographerMediasList) {
     });
 }
 
+/**
+ *
+ * @param {*} mediaList
+ * @param {*} type
+ */
 function sorting(mediaList, type) {
   switch (type) {
     case "likes":
@@ -125,6 +177,9 @@ function sorting(mediaList, type) {
   displayMedias(mediaList);
 }
 
+/**
+ *
+ */
 async function init() {
   const { photographers, medias } = await getPhotographersData();
   const id = getId();
@@ -133,7 +188,6 @@ async function init() {
   const photographerMediasList = getPhotographerMedias(medias, id).map(
     (item) => new Media(item)
   );
-  // console.log("media liste", photographerMediasList);
 
   headInfos(photographer);
   displayHeader(photographer);
@@ -141,7 +195,6 @@ async function init() {
   sortEventListener(photographerMediasList);
   displayPhotographerInfos(getLikesSum(photographerMediasList), photographer);
   displayModalDOM();
-  Lightbox.init();
 }
 
 init();
