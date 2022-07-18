@@ -27,16 +27,17 @@
 
       <section class="photograph__media">
         <div class="custom-select__container">
-          <p>Trier par :</p>
+          <label for="sortSelector">Trier par :</label>
           <div class="custom-select">
             <select id="sortSelector">
-              <option selected disabled></option>
-              <option>likes</option>
-              <option>title</option>
-              <option>date</option>
+              <option value="likes" class="option">Popularité</option>
+              <option value="title">Titre</option>
+              <option value="date">Date</option>
             </select>
+            <span class="custom-arrow"></span>
           </div>
         </div>
+
         <div class="media__grid"></div>
       </section>
     </main>

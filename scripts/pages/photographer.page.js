@@ -166,11 +166,9 @@ function sorting(mediaList, type) {
       });
       break;
     default:
-      // Sorted by date (descending)
+      // Sorted by likes (descending)
       mediaList.sort(function (a, b) {
-        var dateA = a._date;
-        var dateB = b._date;
-        return dateB < dateA ? -1 : dateB > dateA ? 1 : 0;
+        return b._likes - a._likes;
       });
   }
 
@@ -191,7 +189,7 @@ async function init() {
 
   headInfos(photographer);
   displayHeader(photographer);
-  displayMedias(photographerMediasList);
+  sorting(photographerMediasList);
   sortEventListener(photographerMediasList);
   displayPhotographerInfos(getLikesSum(photographerMediasList), photographer);
   displayModalDOM();
