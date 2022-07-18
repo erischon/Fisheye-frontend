@@ -659,69 +659,132 @@ form button {
 }
 
 /*=============== For tablet devices ===============*/
-.custom-select__container {
+.dropdown-menu__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: 1rem;
-  width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
-select {
-  -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
-  font-size: 1.5rem;
-  padding: 1em 3em 1em 1.5em;
-  background-color: #901c1c;
-  color: white;
-  border: 0;
-  cursor: pointer;
+label {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 
-.custom-select {
+.select-wrapper {
   position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
-.custom-arrow {
+.select {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.select__trigger {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  background: #901c1c;
+  cursor: pointer;
+  padding: 1rem 1rem;
+  font-size: 1rem;
+  color: white;
+}
+
+.custom-options {
+  position: absolute;
   display: block;
-  position: absolute;
-  top: 0;
+  top: 100%;
+  left: 0;
   right: 0;
-  width: 4em;
-  height: 100%;
+  border: 2px solid #394a6d;
+  border-top: 0;
+  background: #901c1c;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  background-color: #901c1c;
+  z-index: 2;
 }
 
-.custom-arrow::before,
-.custom-arrow::after {
-  --size: 0.65em;
+.select.open .custom-options {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.custom-option {
+  display: block;
+  position: relative;
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: 300;
+  color: white;
+  line-height: 60px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+hr {
+  width: 75%;
+  background-color: white;
+  color: white;
+}
+
+.custom-option:hover {
+  cursor: pointer;
+  background-color: #b2b2b2;
+}
+
+.custom-option.selected {
+  color: #ffffff;
+  background-color: #305c91;
+}
+
+.arrow {
+  position: relative;
+  height: 1.25rem;
+  width: 1.25rem;
+  margin-left: 2rem;
+}
+
+.arrow::after {
   content: "";
-  position: absolute;
-  top: 40%;
-  left: 40%;
-}
-
-.custom-arrow::before {
-  background: url(../assets/images/arrow-white.svg) center center/100% 100% no-repeat transparent;
+  background: url(../assets/images/arrow-white.svg) center center/100% 100% no-repeat;
   width: 1rem;
   height: 1rem;
   border: none;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  position: absolute;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 
-.option {
-  display: block;
-  padding: 1rem;
-  background-color: aliceblue;
-  font-size: 4rem;
+.open .arrow::after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 /*# sourceMappingURL=global.css.map */

@@ -5,6 +5,7 @@ import { Media } from "../models/media.model.js";
 import { PhotographerHeader } from "../views/photographerHeader.view.js";
 import { PhographerMediaCard } from "../views/photographerMediaCard.view.js";
 import { photographerInfosView } from "../views/photographerInfos.view.js";
+import { DropdownMenu } from "../views/dropdownMenu.view.js";
 import { modalView } from "../views/modal.view.js";
 import { Lightbox } from "../controllers/lightbox.controller.js";
 
@@ -129,11 +130,12 @@ function headInfos(photographer) {
  * @param {*} photographerMediasList
  */
 function sortEventListener(photographerMediasList) {
-  const dom = document
-    .getElementById("sortSelector")
-    .addEventListener("change", (event) => {
-      sorting(photographerMediasList, event.target.value);
-    });
+  const dom = document.getElementById("custom-options");
+
+  dom.addEventListener("click", (event) => {
+    console.log(event.target.getAttribute("value"));
+    sorting(photographerMediasList, event.target.getAttribute("value"));
+  });
 }
 
 /**
@@ -189,6 +191,8 @@ async function init() {
 
   headInfos(photographer);
   displayHeader(photographer);
+  const menu = new DropdownMenu();
+  menu.createMenu();
   sorting(photographerMediasList);
   sortEventListener(photographerMediasList);
   displayPhotographerInfos(getLikesSum(photographerMediasList), photographer);
