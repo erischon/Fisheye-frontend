@@ -682,6 +682,7 @@ label {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  width: 170px;
 }
 
 .select {
@@ -693,6 +694,10 @@ label {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.select:focus {
+  background-color: aqua;
 }
 
 .select__trigger {
@@ -719,7 +724,7 @@ label {
   top: 100%;
   left: 0;
   right: 0;
-  border: 2px solid #394a6d;
+  border: 2px solid #901c1c;
   border-top: 0;
   background: #901c1c;
   -webkit-transition: all 0.5s;
@@ -739,11 +744,10 @@ label {
 .custom-option {
   display: block;
   position: relative;
-  padding: 0 1rem;
+  padding: 0.75rem 1rem;
   font-size: 1rem;
   font-weight: 300;
   color: white;
-  line-height: 60px;
   cursor: pointer;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -757,12 +761,12 @@ hr {
 
 .custom-option:hover {
   cursor: pointer;
-  background-color: #b2b2b2;
+  background-color: #db8876;
 }
 
 .custom-option.selected {
-  color: #ffffff;
-  background-color: #305c91;
+  background-color: white;
+  color: #901c1c;
 }
 
 .arrow {

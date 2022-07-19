@@ -35,6 +35,9 @@ export class DropdownMenu {
         this.querySelector(".select").classList.toggle("open");
       });
 
+    menuDom.focus();
+
+    //
     for (const option of menuDom.querySelectorAll(".custom-option")) {
       option.addEventListener("click", function () {
         if (!this.classList.contains("selected")) {
@@ -48,6 +51,14 @@ export class DropdownMenu {
         }
       });
     }
+
+    // Close the dropdown if user click outside
+    window.addEventListener("click", function (e) {
+      const select = menuDom.querySelector(".select");
+      if (!select.contains(e.target)) {
+        select.classList.remove("open");
+      }
+    });
 
     return menuDom;
   }

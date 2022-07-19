@@ -1,3 +1,6 @@
+$color-button: rgb(144, 28, 28);
+$color-button-hover: rgb(219, 136, 118);
+
 .dropdown-menu__container {
   display: flex;
   align-items: center;
@@ -14,6 +17,7 @@ label {
 .select-wrapper {
   position: relative;
   user-select: none;
+  width: 170px;
 }
 
 .select {
@@ -22,13 +26,17 @@ label {
   flex-direction: column;
 }
 
+.select:focus {
+  background-color: aqua;
+}
+
 .select__trigger {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
 
-  background: #901c1c;
+  background: $color-button;
   cursor: pointer;
 
   padding: 1rem 1rem;
@@ -42,9 +50,9 @@ label {
   top: 100%;
   left: 0;
   right: 0;
-  border: 2px solid #394a6d;
+  border: 2px solid $color-button;
   border-top: 0;
-  background: #901c1c;
+  background: $color-button;
 
   transition: all 0.5s;
   opacity: 0;
@@ -62,11 +70,10 @@ label {
 .custom-option {
   display: block;
   position: relative;
-  padding: 0 1rem;
+  padding: 0.75rem 1rem;
   font-size: 1rem;
   font-weight: 300;
   color: white;
-  line-height: 60px;
   cursor: pointer;
   transition: all 0.5s;
 }
@@ -79,12 +86,13 @@ hr {
 
 .custom-option:hover {
   cursor: pointer;
-  background-color: #b2b2b2;
+  background-color: $color-button-hover;
 }
 
 .custom-option.selected {
-  color: #ffffff;
-  background-color: #305c91;
+  background-color: white;
+  color: $color-button;
+  // background-color: #305c91;
 }
 
 .arrow {
