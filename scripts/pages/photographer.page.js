@@ -82,7 +82,7 @@ function displayMedias(medias) {
     photographMedia.appendChild(photographerCard.getPhotographerMediaCard());
   });
 
-  Lightbox.init();
+  Lightbox.init(medias);
 }
 
 /**
