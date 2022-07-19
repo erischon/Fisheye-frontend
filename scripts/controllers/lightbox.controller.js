@@ -9,15 +9,15 @@ export class Lightbox {
   static init() {
     const links = Array.from(
       document.querySelectorAll(
-        ".photographer-header__image"
-        // ".photographer-header__image, .photographer-header__video"
+        ".photographer-media__image"
+        // ".photographer-media__image, .photographer-media__video"
       )
     );
 
     const images = links.map((link) => {
-      if (link.classList.value === "photographer-header__video") {
+      if (link.classList.value === "photographer-media__video") {
         return link.firstElementChild.getAttribute("src");
-      } else if (link.classList.value === "photographer-header__image") {
+      } else if (link.classList.value === "photographer-media__image") {
         return link.getAttribute("src");
       }
     });
@@ -144,10 +144,10 @@ export class Lightbox {
    * @return {HTMLElement}
    */
   buildDom(url) {
-    const dom = document.createElement("section");
+    const lightboxDom = document.createElement("section");
 
-    dom.classList.add("lightbox");
-    dom.innerHTML = `
+    lightboxDom.classList.add("lightbox");
+    lightboxDom.innerHTML = `
       <div class="lightbox__wrapper">
         <button class="lightbox__close"></button>
         <button class="lightbox__next"></button>
@@ -155,16 +155,16 @@ export class Lightbox {
         <div class="lightbox__container"></div>
       </div>
     `;
-    dom
+    lightboxDom
       .querySelector(".lightbox__close")
       .addEventListener("click", this.close.bind(this));
-    dom
+    lightboxDom
       .querySelector(".lightbox__next")
       .addEventListener("click", this.next.bind(this));
-    dom
+    lightboxDom
       .querySelector(".lightbox__prev")
       .addEventListener("click", this.prev.bind(this));
 
-    return dom;
+    return lightboxDom;
   }
 }
