@@ -9,10 +9,12 @@ export class Lightbox {
   static init() {
     const links = Array.from(
       document.querySelectorAll(
-        ".photographer-header__img"
-        // ".photographer-header__img, .photographer-header__video"
+        // ".photographer-header__img"
+        ".photographer-header__img, .photographer-header__video"
       )
     );
+    console.log(links);
+    links.map((link) => console.log(link.classList.value));
 
     const images = links.map((link) => link.getAttribute("src"));
     const imagesTitles = links.map((link) => link.getAttribute("alt"));
