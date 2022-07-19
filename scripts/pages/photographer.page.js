@@ -1,12 +1,12 @@
 import { getPhotographersData } from "../services/api.js";
 import { Photographer } from "../models/photographer.model.js";
-import { Media } from "../models/media.model.js";
 
+import { MediaFactory } from "../controllers/mediaFactory.controller.js";
 import { PhotographerHeader } from "../views/photographerHeader.view.js";
 import { PhographerMediaCard } from "../views/photographerMediaCard.view.js";
 import { photographerInfosView } from "../views/photographerInfos.view.js";
 import { DropdownMenu } from "../views/dropdownMenu.view.js";
-import { modalView } from "../views/modal.view.js";
+
 import { Lightbox } from "../controllers/lightbox.controller.js";
 
 /**
@@ -133,7 +133,6 @@ function sortEventListener(photographerMediasList) {
   const dom = document.getElementById("custom-options");
 
   dom.addEventListener("click", (event) => {
-    console.log(event.target.getAttribute("value"));
     sorting(photographerMediasList, event.target.getAttribute("value"));
   });
 }
@@ -186,7 +185,9 @@ async function init() {
 
   const photographer = new Photographer(getPhotographer(photographers, id));
   const photographerMediasList = getPhotographerMedias(medias, id).map(
-    (item) => new Media(item)
+    (item) => {
+      return new MediaFactory(item);
+    }
   );
 
   headInfos(photographer);

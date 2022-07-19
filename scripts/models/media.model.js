@@ -3,16 +3,6 @@ export class Media {
     this._id = data.id;
     this._photographerId = data.photographerId;
     this._title = data.title;
-    if (data.image) {
-      this._image = data.image;
-    } else {
-      this._image = null;
-    }
-    if (data.video) {
-      this._video = data.video;
-    } else {
-      this._video = null;
-    }
     this._likes = data.likes;
     this._date = data.date;
     this._price = data.price;
@@ -31,20 +21,6 @@ export class Media {
     return this._title;
   }
 
-  get image() {
-    if (this._image) {
-      return `assets/photos/${this._photographerId}/${this._image}`;
-    }
-    return null;
-  }
-
-  get video() {
-    if (this._video) {
-      return `assets/photos/${this._photographerId}/${this._video}`;
-    }
-    return null;
-  }
-
   get likes() {
     return this._likes;
   }
@@ -55,5 +31,27 @@ export class Media {
 
   get price() {
     return this._price;
+  }
+}
+
+export class MediaImage extends Media {
+  constructor(data) {
+    super(data);
+    this._image = data.image;
+  }
+
+  get image() {
+    return `assets/photos/${this._photographerId}/${this._image}`;
+  }
+}
+
+export class MediaVideo extends Media {
+  constructor(data) {
+    super(data);
+    this._video = data.video;
+  }
+
+  get video() {
+    return `assets/photos/${this._photographerId}/${this._video}`;
   }
 }
