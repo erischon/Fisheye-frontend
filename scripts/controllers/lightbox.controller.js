@@ -9,14 +9,20 @@ export class Lightbox {
   static init() {
     const links = Array.from(
       document.querySelectorAll(
-        // ".photographer-header__img"
-        ".photographer-header__img, .photographer-header__video"
+        ".photographer-header__image"
+        // ".photographer-header__image, .photographer-header__video"
       )
     );
-    console.log(links);
-    links.map((link) => console.log(link.classList.value));
 
-    const images = links.map((link) => link.getAttribute("src"));
+    const images = links.map((link) => {
+      if (link.classList.value === "photographer-header__video") {
+        return link.firstElementChild.getAttribute("src");
+      } else if (link.classList.value === "photographer-header__image") {
+        return link.getAttribute("src");
+      }
+    });
+
+    // const images = links.map((link) => link.getAttribute("src"));
     const imagesTitles = links.map((link) => link.getAttribute("alt"));
 
     links.forEach((link) =>
