@@ -95,6 +95,7 @@ export class Lightbox {
       container.removeChild(loader);
       container.appendChild(image);
       container.appendChild(imageTitle);
+      console.log(url);
       this.url = url;
     };
 
@@ -102,35 +103,34 @@ export class Lightbox {
   }
 
   /**
-   * Load the image
+   * Load the Video
    * @param {string} url Image URL
    */
   loadVideo(url) {
-    console.log("video");
-    // this.url = null;
-    // const image = new Image();
-    // const container = this.element.querySelector(".lightbox__container");
+    this.url = null;
+    const image = new Image();
+    const container = this.element.querySelector(".lightbox__container");
 
-    // // Loader
-    // const loader = document.createElement("div");
-    // loader.classList.add("lightbox__loader");
-    // container.innerHTML = "";
-    // container.appendChild(loader);
+    // Loader
+    const loader = document.createElement("div");
+    loader.classList.add("lightbox__loader");
+    container.innerHTML = "";
+    container.appendChild(loader);
 
-    // // Image Title
-    // const i = this.images.findIndex((image) => image === url);
-    // const imageTitle = document.createElement("p");
-    // imageTitle.classList.add("lightbox__title");
-    // imageTitle.textContent = this.imagesTitles[i];
+    // Image Title
+    const i = this.images.findIndex((image) => image === url);
+    const imageTitle = document.createElement("p");
+    imageTitle.classList.add("lightbox__title");
+    imageTitle.textContent = this.imagesTitles[i];
 
-    // image.onload = () => {
-    //   container.removeChild(loader);
-    //   container.appendChild(image);
-    //   container.appendChild(imageTitle);
-    //   this.url = url;
-    // };
+    image.onload = () => {
+      container.removeChild(loader);
+      container.appendChild(image);
+      container.appendChild(imageTitle);
+      this.url = url;
+    };
 
-    // image.src = url;
+    image.src = url;
   }
 
   /**
