@@ -1,12 +1,13 @@
 import { getPhotographersData } from "../services/api.js";
+
 import { Photographer } from "../models/photographer.model.js";
 
-import { MediaFactory } from "../controllers/mediaFactory.controller.js";
 import { PhotographerHeader } from "../views/photographerHeader.view.js";
 import { PhographerMediaCard } from "../views/photographerMediaCard.view.js";
 import { photographerInfosView } from "../views/photographerInfos.view.js";
 import { DropdownMenu } from "../views/dropdownMenu.view.js";
 
+import { MediaFactory } from "../controllers/mediaFactory.controller.js";
 import { Lightbox } from "../controllers/lightbox.controller.js";
 
 /**
@@ -185,9 +186,7 @@ async function init() {
 
   const photographer = new Photographer(getPhotographer(photographers, id));
   const photographerMediasList = getPhotographerMedias(medias, id).map(
-    (item) => {
-      return new MediaFactory(item);
-    }
+    (item) => new MediaFactory(item)
   );
 
   headInfos(photographer);
