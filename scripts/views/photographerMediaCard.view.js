@@ -19,9 +19,9 @@ export class PhographerMediaCard {
     let media = "";
 
     if (this._image) {
-      media = `<img src="${this._image}" alt="${this._title}" class="photographer-media__image">`;
+      media = `<img src="${this._image}" alt="${this._title}" class="photographer-media__image ${this._id}">`;
     } else if (this._video) {
-      media = `<video controls class="photographer-media__video"><source src="${this._video}" type="video/mp4"></video>`;
+      media = `<video controls class="photographer-media__video ${this._id}"><source class="" src="${this._video}" type="video/mp4"></video>`;
     }
 
     const numberOfLikes = new NumberOfLikes(this._data, article);
