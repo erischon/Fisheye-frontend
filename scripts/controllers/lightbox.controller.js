@@ -24,13 +24,18 @@ export class Lightbox {
 
       html[0].addEventListener("click", (e) => {
         e.preventDefault();
+        const type = media.constructor.name;
+        let url = "";
 
-        new Lightbox(
-          media.constructor.name,
-          media.image,
-          mediaLinks,
-          mediaTitles
-        );
+        if (type === "MediaImage") {
+          url = media.image;
+        } else if (type === "MediaVideo") {
+          url = media.video;
+        } else {
+          url = null;
+        }
+
+        new Lightbox(type, url, mediaLinks, mediaTitles);
       });
     });
   }
@@ -95,20 +100,25 @@ export class Lightbox {
       container.removeChild(loader);
       container.appendChild(image);
       container.appendChild(imageTitle);
-      console.log(url);
       this.url = url;
     };
 
     image.src = url;
+    console.log(image.src);
   }
 
   /**
    * Load the Video
-   * @param {string} url Image URL
+   * @param {string} url Video URL
    */
   loadVideo(url) {
     this.url = null;
-    const image = new Image();
+    const video = document.createElement("video");
+    video.setAttribute("controls", true);
+    video.setAttribute("width", 480);
+    video.setAttribute("height", 480);
+    video.innerHTML = `<source src="${url}" type="video/mp4">`;
+
     const container = this.element.querySelector(".lightbox__container");
 
     // Loader
@@ -123,14 +133,15 @@ export class Lightbox {
     imageTitle.classList.add("lightbox__title");
     imageTitle.textContent = this.imagesTitles[i];
 
-    image.onload = () => {
-      container.removeChild(loader);
-      container.appendChild(image);
-      container.appendChild(imageTitle);
-      this.url = url;
-    };
+    // video.load = () => {
+    container.removeChild(loader);
+    container.appendChild(video);
+    container.appendChild(imageTitle);
+    this.url = url;
+    // };
 
-    image.src = url;
+    video.src = url;
+    console.log(video.src);
   }
 
   /**
