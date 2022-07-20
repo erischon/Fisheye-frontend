@@ -115,8 +115,7 @@ export class Lightbox {
     this.url = null;
     const video = document.createElement("video");
     video.setAttribute("controls", true);
-    video.setAttribute("width", 480);
-    video.setAttribute("height", 480);
+    video.setAttribute("width", "100%");
     video.innerHTML = `<source src="${url}" type="video/mp4">`;
 
     const container = this.element.querySelector(".lightbox__container");
@@ -171,7 +170,12 @@ export class Lightbox {
     if (i === this.images.length - 1) {
       i = -1;
     }
-    this.loadImage(this.images[i + 1]);
+
+    if (this.images[i + 1].includes(".jpg")) {
+      this.loadImage(this.images[i + 1]);
+    } else if (this.images[i + 1].includes(".mp4")) {
+      this.loadVideo(this.images[i + 1]);
+    }
   }
 
   /**
@@ -185,7 +189,12 @@ export class Lightbox {
     if (i === 0) {
       i = this.images.length;
     }
-    this.loadImage(this.images[i - 1]);
+
+    if (this.images[i - 1].includes("jpg")) {
+      this.loadImage(this.images[i - 1]);
+    } else if (this.images[i - 1].includes("mp4")) {
+      this.loadVideo(this.images[i - 1]);
+    }
   }
 
   /**
