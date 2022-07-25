@@ -15,6 +15,7 @@ export class PhographerMediaCard {
   getPhotographerMediaCard() {
     const article = document.createElement("article");
     article.classList.add("photograph-media-card");
+    article.setAttribute("tabindex", "0");
 
     let media = "";
 
