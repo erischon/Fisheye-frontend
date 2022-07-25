@@ -720,10 +720,6 @@ label {
           flex-direction: column;
 }
 
-.select:focus {
-  background-color: aqua;
-}
-
 .select__trigger {
   display: -webkit-box;
   display: -ms-flexbox;

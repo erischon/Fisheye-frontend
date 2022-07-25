@@ -7,19 +7,19 @@ export class DropdownMenu {
     const dropdowMenu = `
         
       <label for="sortSelector">Trier par :</label>
-      <div class="select-wrapper" aria-controls="sortSelector" role="list" type="button" tabindex="0">
-        <div id="sortSelector" class="select" type="button">
+      <div class="select-wrapper" aria-controls="sortSelector" type="button">
+        <div id="sortSelector" class="select" type="button" tabindex="0">
           <div class="select__trigger">
               <span>Popularité</span>
               <div class="arrow"></div>
           </div>
 
           <div class="custom-options" id="custom-options">
-            <span class="custom-option likes selected" value="likes" role="listitem">Popularité</span>
+            <span class="custom-option likes selected" value="likes">Popularité</span>
             <hr />
-            <span class="custom-option title" value="title" role="listitem">Titre</span>
+            <span class="custom-option title" value="title">Titre</span>
             <hr />
-            <span class="custom-option date" value="date" role="listitem">Date</span>
+            <span class="custom-option date" value="date">Date</span>
           </div>
 
         </div>
@@ -29,21 +29,19 @@ export class DropdownMenu {
 
     menuDom.innerHTML = dropdowMenu;
 
-    const wrapper = menuDom.querySelector(".select-wrapper");
+    // menuDom
+    //   .querySelector(".select-wrapper")
+    //   .addEventListener("click", function () {
+    //     this.querySelector(".select").classList.toggle("open");
+    //   });
 
-    wrapper.addEventListener("click", function () {
-      this.querySelector(".select").classList.toggle("open");
-    });
+    menuDom
+      .querySelector(".select-wrapper")
+      .addEventListener("focus", function () {
+        this.querySelector(".select").classList.toggle("open");
+      });
 
-    wrapper.addEventListener("focus", function () {
-      this.querySelector(".select").classList.toggle("open");
-    });
-
-    wrapper.addEventListener("focusout", function () {
-      this.querySelector(".select").classList.remove("open");
-    });
-
-    menuDom.focus();
+    // menuDom.focus();
 
     //
     for (const option of menuDom.querySelectorAll(".custom-option")) {
