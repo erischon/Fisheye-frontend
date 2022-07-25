@@ -76,11 +76,9 @@ function displayHeader(photographer) {
  */
 function displayModalHtml(photographer) {
   const contactModal = document.querySelector("#contactModal");
-  console.log(contactModal);
 
   const modal = new ContactModal(photographer);
   modal.modalAccessibility();
-  console.log(modal);
   contactModal.appendChild(modal.getContactModal(photographer));
 }
 

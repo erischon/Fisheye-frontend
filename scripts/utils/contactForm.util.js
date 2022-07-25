@@ -1,4 +1,5 @@
 const contactForm = document.getElementById("contact");
+console.log("contact form", contactForm);
 
 // Error messages
 const firstNameMsg =
@@ -109,11 +110,3 @@ function validateInputs() {
     closeModal();
   }
 }
-
-// function thanksModal
-const thanksModal = () => {
-  // location.replace("/");
-  const modal = document.getElementById("contactModal");
-
-  modal.style.display = "none";
-};
