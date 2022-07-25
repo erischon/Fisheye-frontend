@@ -1,43 +1,67 @@
-// import * as contactForm from "../utils/contactForm.util.js";
+export class ContactModal {
+  constructor(data) {
+    this._id = data.id;
+    this._name = data.name;
+  }
 
-export const modalView = () => {
-  const modal = document.createElement("div");
-  modal.setAttribute("id", "contactModal");
+  modalAccessibility() {
+    const modal = document.getElementById("contactModal");
 
-  const modalContent = `
-      <div class="modal">
-        <header>
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-labelledby", "contact-form");
+    modal.setAttribute("aria-describedby", "Contact form");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-hidden", "true");
+    modal.setAttribute("tabindex", "-1");
+  }
+
+  getContactModal() {
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+
+    const modalContent = `
+
+        <header class="contact-form__header">
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h2>${this._name}</h2>
+          <button
+            class="modal__close"
+            onclick="closeModal()"
+            alt="Close"
+            aria-label="Close"
+            title="Close the modal"
+            data-dismiss="dialog"
+          ></button>
         </header>
-
+  
         <form id="contact">
           <div class="form__data">
             <label for="firstName">Prénom</label>
-            <input type="text" id="firstName" name="firstName"/>
+            <input type="text" id="firstName" name="firstName" />
           </div>
-
+  
           <div class="form__data">
             <label for="lastName">Nom</label>
-            <input type="text" id="lastName" name="lastName"/>
+            <input type="text" id="lastName" name="lastName" />
           </div>
-
+  
           <div class="form__data">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email"/>
+            <input type="email" id="email" name="email" />
           </div>
-
+  
           <div class="form__data">
             <label for="message">Votre message</label>
             <textarea id="message" name="message" rows="5"></textarea>
           </div>
-
+  
           <button class="contact_button" type="submit">Envoyer</button>
         </form>
-      </div>
-    `;
 
-  modal.innerHTML = modalContent;
+      `;
 
-  return modal;
-};
+    modal.innerHTML = modalContent;
+
+    return modal;
+  }
+}

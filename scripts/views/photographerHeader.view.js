@@ -22,12 +22,17 @@ export class PhotographerHeader {
             <span class="desc__tagline">${this._tagline}</span>
           </div>
 
-          <button class="contact_button" onclick="displayModal()">
+          <button 
+            class="contact-button"
+            onclick="displayModal()"
+            aria-haspopup="dialog"
+            aria-controls="contactModal"
+            type="button"
+          >
             Contactez-moi
           </button>
 
           <img src="${this._portrait}" alt="${this._name}" class="photographer-header__portrait">
-
         
       `;
 

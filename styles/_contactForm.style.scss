@@ -6,14 +6,25 @@
   margin-bottom: 1rem;
   width: 100%;
 
-  img {
+  .modal__close {
+    background: url(../assets/images/close-white.svg) center center / 100% 100%
+      no-repeat transparent;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: none;
     position: absolute;
     top: 2rem;
     right: 2rem;
-
-    width: 1rem;
+    z-index: 12;
 
     cursor: pointer;
+
+    &:focus {
+      border: 2px solid black;
+    }
+  }
+
+  img {
   }
 
   h2 {
@@ -55,6 +66,10 @@ form {
         border: 2px solid red;
         background-color: #f0f0f0;
       }
+
+      &:focus {
+        border: 2px solid black;
+      }
     }
   }
 
@@ -74,6 +89,10 @@ form {
     color: #fff;
 
     cursor: pointer;
+
+    &:focus {
+      border: 2px solid black;
+    }
   }
 }
 

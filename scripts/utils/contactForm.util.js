@@ -106,7 +106,7 @@ function validateInputs() {
     console.log(formData);
 
     contactForm.reset();
-    thanksModal();
+    closeModal();
   }
 }
 

@@ -10,8 +10,7 @@
   background-color: #fafafa;
 
   height: 300px;
-  // to look like the mockup:
-  // padding: 0 3.1rem;
+  padding: 0 3.1rem;
 
   .desc {
     display: flex;
@@ -46,6 +45,10 @@
     color: white;
 
     cursor: pointer;
+
+    &:focus {
+      border: 2px solid black;
+    }
   }
 
   img {

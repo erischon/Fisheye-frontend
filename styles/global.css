@@ -18,6 +18,7 @@ body {
   padding: 0 1rem;
   font-family: "DM Sans", sans-serif;
   font-size: 16px;
+  background-color: fafafa;
 }
 
 h1,
@@ -184,6 +185,7 @@ h1 {
           align-items: center;
   background-color: #fafafa;
   height: 300px;
+  padding: 0 3.1rem;
 }
 
 .photograph-header .desc {
@@ -221,6 +223,10 @@ h1 {
   font-weight: 700;
   color: white;
   cursor: pointer;
+}
+
+.photograph-header button:focus {
+  border: 2px solid black;
 }
 
 .photograph-header img {
@@ -444,12 +450,20 @@ h1 {
   width: 100%;
 }
 
-.contact-form__header img {
+.contact-form__header .modal__close {
+  background: url(../assets/images/close-white.svg) center center/100% 100% no-repeat transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
   position: absolute;
   top: 2rem;
   right: 2rem;
-  width: 1rem;
+  z-index: 12;
   cursor: pointer;
+}
+
+.contact-form__header .modal__close:focus {
+  border: 2px solid black;
 }
 
 .contact-form__header h2 {
@@ -507,6 +521,11 @@ form .form__data textarea.data-error {
   background-color: #f0f0f0;
 }
 
+form .form__data input:focus,
+form .form__data textarea:focus {
+  border: 2px solid black;
+}
+
 form button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -521,6 +540,10 @@ form button {
   font-weight: 700;
   color: #fff;
   cursor: pointer;
+}
+
+form button:focus {
+  border: 2px solid black;
 }
 
 /* Errors */
