@@ -11,6 +11,8 @@ import { ContactModal } from "../views/modal.view.js";
 import { MediaFactory } from "../controllers/mediaFactory.controller.js";
 import { Lightbox } from "../controllers/lightbox.controller.js";
 
+import { ContactForm } from "../utils/contactForm.util.js";
+
 /**
  * Get the id of photographer
  * @returns { number }
@@ -80,6 +82,8 @@ function displayModalHtml(photographer) {
   const modal = new ContactModal(photographer);
   modal.modalAccessibility();
   contactModal.appendChild(modal.getContactModal(photographer));
+
+  ContactForm.init();
 }
 
 /**
