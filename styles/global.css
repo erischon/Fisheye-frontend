@@ -690,6 +690,7 @@ form button:focus {
       -ms-flex-align: center;
           align-items: center;
   gap: 1rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
