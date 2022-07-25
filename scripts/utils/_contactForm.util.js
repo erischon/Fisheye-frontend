@@ -1,29 +1,27 @@
-export class ContactForm {
+const contactForm = document.getElementById("contact");
 
-  const contactForm = document.getElementById("contact");
-  
-  // Error messages
-  const firstNameMsg =
+// Error messages
+const firstNameMsg =
   "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
-  const lastNameMsg =
+const lastNameMsg =
   "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
-  const emailMsg = "Veuillez entrer une adresse email valide.";
-  const messageMsg = "Veuillez laisser un message d'au moins 10 caractères.";
-  
-  // Submit Form
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    validateInputs();
-  });
-  
+const emailMsg = "Veuillez entrer une adresse email valide.";
+const messageMsg = "Veuillez laisser un message d'au moins 10 caractères.";
+
+// Submit Form
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  validateInputs();
+});
+
 // Set to Error
 const setError = (element, message) => {
   const formData = element.parentElement;
-  
+
   formData.classList.add("data-error");
   formData.setAttribute("data-error", message);
   element.classList.add("data-error");
-  
+
   formData.classList.remove("success");
 };
 
@@ -34,14 +32,14 @@ const setSuccess = (element) => {
   formData.classList.remove("data-error");
   formData.removeAttribute("data-error");
   element.classList.remove("data-error");
-  
+
   formData.classList.add("success");
 };
 
 // Email Validation
 const isValidEmail = (email) => {
   const re =
-  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 };
 
@@ -52,13 +50,13 @@ function validateInputs() {
   const lastNameValue = document.getElementById("lastName").value.trim();
   const emailValue = document.getElementById("email").value.trim();
   const messageValue = document.getElementById("message").value.trim();
-  
+
   // Set the validation
   let firstNameValidation = false;
   let lastNameValidation = false;
   let emailValidation = false;
   let messageValidation = false;
-  
+
   // First name validation
   if (firstNameValue === "" || firstNameValue.length < 2) {
     setError(firstName, firstNameMsg);
@@ -66,7 +64,7 @@ function validateInputs() {
     setSuccess(firstName);
     firstNameValidation = true;
   }
-  
+
   // Last name validation
   if (lastNameValue === "" || lastNameValue.length < 2) {
     setError(lastName, lastNameMsg);
@@ -74,7 +72,7 @@ function validateInputs() {
     setSuccess(lastName);
     lastNameValidation = true;
   }
-  
+
   // Email validation
   if (emailValue === "") {
     setError(email, emailMsg);
@@ -92,13 +90,13 @@ function validateInputs() {
     setSuccess(message);
     messageValidation = true;
   }
-  
+
   if (
     firstNameValidation &&
     lastNameValidation &&
     emailValidation &&
     messageValidation
-    ) {
+  ) {
     formData = {
       firstName: firstNameValue,
       lastName: lastNameValue,
@@ -106,10 +104,8 @@ function validateInputs() {
       message: messageValue,
     };
     console.log(formData);
-    
+
     contactForm.reset();
     closeModal();
   }
-}
-
 }
