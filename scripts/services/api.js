@@ -1,11 +1,11 @@
-const API_URL = "data/photographers.json";
+const ENDPOINT = "data/photographers.json";
 
 /**
  * Fetch the data
  * @return { Promise }
  */
 export async function getPhotographersData() {
-  const response = await fetch(API_URL);
+  const response = await fetch(ENDPOINT);
 
   if (!response.ok) {
     console.log("Error");
