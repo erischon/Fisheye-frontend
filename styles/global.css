@@ -277,9 +277,18 @@ h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: relative;
   margin: 0 auto;
   color: #901c1c;
   max-width: 100%;
+}
+
+.media__grid .photograph-media-card .videoWarning {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  color: white;
+  font-size: 2rem;
 }
 
 .media__grid .photograph-media-card img {
@@ -732,25 +741,6 @@ label {
       -ms-user-select: none;
           user-select: none;
   width: 170px;
-}
-
-.select-wrapper:focus {
-  outline: 3px solid #db8876;
-  border-radius: 2px;
-}
-
-.select-wrapper:focus .select {
-  outline: 3px solid #db8876;
-  border-radius: 2px;
-}
-
-.select-wrapper:focus .select .select__trigger {
-  background-color: #db8876;
-}
-
-.select-wrapper:focus .select .custom-options {
-  outline: 3px solid #db8876;
-  border-radius: 2px;
 }
 
 .select {

@@ -81,11 +81,19 @@
   .photograph-media-card {
     display: flex;
     flex-direction: column;
+    position: relative;
 
     margin: 0 auto;
     color: #901c1c;
     max-width: 100%;
 
+    .videoWarning {
+      position: absolute;
+      top: 40%;
+      left: 35%;
+      color: white;
+      font-size: 2rem;
+    }
     img {
       width: 300px;
       height: 250px;

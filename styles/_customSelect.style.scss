@@ -19,22 +19,6 @@ label {
   position: relative;
   user-select: none;
   width: 170px;
-
-  &:focus {
-    @include focus;
-
-    .select {
-      @include focus;
-
-      .select__trigger {
-        background-color: $color-button-hover;
-      }
-
-      .custom-options {
-        @include focus;
-      }
-    }
-  }
 }
 
 .select {
