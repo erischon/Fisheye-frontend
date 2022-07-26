@@ -24,7 +24,7 @@ export class PhographerMediaCard {
       // media = `<video controls class="photographer-media__video ${this._id}" tabindex="0"><source class="" src="${this._video}" type="video/mp4"></video>`;
       const videoPreview = this._video.replace(".mp4", "_Moment.jpg");
 
-      media = `<img src="${videoPreview}" alt="${this._title}" class="photographer-media__video ${this._id}" tabindex="0"><span class="videoWarning">Video</span>`;
+      media = `<img src="${videoPreview}" alt="${this._title}" class="photographer-media__video ${this._id}" tabindex="0"><i class="fa-solid fa-video videoWarning"></i>`;
     }
 
     const numberOfLikes = new NumberOfLikes(this._data, article);

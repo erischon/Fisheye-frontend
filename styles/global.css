@@ -286,9 +286,14 @@ h1 {
 .media__grid .photograph-media-card .videoWarning {
   position: absolute;
   top: 40%;
-  left: 35%;
+  left: 45%;
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 0;
 }
 
 .media__grid .photograph-media-card img {
@@ -334,7 +339,7 @@ h1 {
 
 .media__grid .photograph-media-card .desc__wrapper .desc__title {
   max-width: 250px;
-  font-size: 1.5rem;
+  font-size: 1rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
