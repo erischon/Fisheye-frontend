@@ -1,3 +1,6 @@
+/**
+ *Photographer Model
+ */
 export class Photographer {
   constructor(data) {
     this._name = data.name;

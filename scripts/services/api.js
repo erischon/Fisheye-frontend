@@ -1,6 +1,9 @@
 const API_URL = "data/photographers.json";
 
-// return photographers;
+/**
+ * Fetch the data
+ * @return { Promise }
+ */
 export async function getPhotographersData() {
   const response = await fetch(API_URL);
 

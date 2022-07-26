@@ -10,11 +10,15 @@ export class PhotographerCard {
     this._path = data.photographerUrl;
   }
 
+  /**
+   * Create a photographer card
+   * @return { HTMLElement }
+   */
   getPhotographerCard() {
     const article = document.createElement("article");
 
     const photographerCard = `
-      <article>
+
         <a href="${this._path}" aria-label="Link to ${this._name}">
           <div class="card__linkBox">
             <img src="${this._portrait}" alt="${this._name}">
@@ -26,7 +30,7 @@ export class PhotographerCard {
           <span class="card__tagline">${this._tagline}</span>
           <span class="card__price">${this._price}€/jour</span>
         </div>
-      </article>
+
     `;
 
     article.innerHTML = photographerCard;
