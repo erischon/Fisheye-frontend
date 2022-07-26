@@ -35,7 +35,7 @@ export class NumberOfLikes {
 
     // Updating sum of photographer total likes
     const likeSumEl = document.querySelector(
-      "article.photograph-infos .like__number"
+      "article.photographer-infos .like__number"
     );
     const likeSum = likeSumEl.innerText;
     likeSumEl.innerText = parseInt(likeSumEl.innerText) + 1;

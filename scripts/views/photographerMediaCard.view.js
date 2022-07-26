@@ -15,14 +15,13 @@ export class PhographerMediaCard {
   getPhotographerMediaCard() {
     const article = document.createElement("article");
     article.classList.add("photograph-media-card");
-    article.setAttribute("tabindex", "0");
 
     let media = "";
 
     if (this._image) {
-      media = `<img src="${this._image}" alt="${this._title}" class="photographer-media__image ${this._id}">`;
+      media = `<img src="${this._image}" alt="${this._title}" class="photographer-media__image ${this._id}" tabindex="0">`;
     } else if (this._video) {
-      media = `<video controls class="photographer-media__video ${this._id}"><source class="" src="${this._video}" type="video/mp4"></video>`;
+      media = `<video controls class="photographer-media__video ${this._id}" tabindex="0"><source class="" src="${this._video}" type="video/mp4"></video>`;
     }
 
     const numberOfLikes = new NumberOfLikes(this._data, article);

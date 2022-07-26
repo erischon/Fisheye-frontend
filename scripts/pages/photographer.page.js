@@ -66,7 +66,7 @@ const getLikesSum = (media) => {
  * @param {*} photographer
  */
 function displayHeader(photographer) {
-  const photographerHeader = document.querySelector(".photograph__header");
+  const photographerHeader = document.querySelector(".photographer__header");
 
   const header = new PhotographerHeader(photographer);
   photographerHeader.appendChild(header.getPhotographerHeader());

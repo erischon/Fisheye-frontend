@@ -1,6 +1,6 @@
 export const photographerInfosView = (likes, price) => {
   const article = document.createElement("article");
-  article.classList.add("photograph-infos");
+  article.classList.add("photographer-infos");
 
   const photographerInfos = `
       <div class="like__container">

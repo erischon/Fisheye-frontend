@@ -12,7 +12,7 @@ export class PhotographerHeader {
 
   getPhotographerHeader() {
     const article = document.createElement("article");
-    article.classList.add("photograph-header");
+    article.classList.add("photographer-header");
 
     const photographerHeader = `
         

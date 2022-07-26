@@ -19,7 +19,7 @@ body {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
-  background-color: #fafafa;
+  background-color: white;
 }
 
 h1,
@@ -178,11 +178,12 @@ h1 {
   font-size: 0.9rem;
 }
 
-.photograph__header {
+.photographer__header {
   position: relative;
+  margin-top: 1rem;
 }
 
-.photograph-header {
+.photographer-header {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1.5fr 1fr 1fr;
@@ -191,11 +192,10 @@ h1 {
       -ms-flex-align: center;
           align-items: center;
   background-color: #fafafa;
-  height: 300px;
-  padding: 0 3.1rem;
+  padding: 3rem 3.1rem;
 }
 
-.photograph-header .desc {
+.photographer-header .desc {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -206,21 +206,21 @@ h1 {
   gap: 1rem;
 }
 
-.photograph-header .desc h1 {
+.photographer-header .desc h1 {
   font-size: 4rem;
   color: #d3573c;
 }
 
-.photograph-header .desc__location {
+.photographer-header .desc__location {
   font-size: 1.5rem;
   color: #901c1c;
 }
 
-.photograph-header .desc__tagline {
+.photographer-header .desc__tagline {
   font-size: 1.1rem;
 }
 
-.photograph-header button {
+.photographer-header button {
   padding: 1rem 2rem;
   margin: 0 auto;
   border: none;
@@ -232,11 +232,18 @@ h1 {
   cursor: pointer;
 }
 
-.photograph-header button:focus {
-  border: 2px solid black;
+.photographer-header button:hover {
+  background-color: #db8876;
+  color: black;
 }
 
-.photograph-header img {
+.photographer-header button:focus {
+  background-color: #db8876;
+  outline: 3px solid #db8876;
+  border-radius: 2px;
+}
+
+.photographer-header img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -259,6 +266,7 @@ h1 {
   gap: 2rem;
   background-color: #fafafa;
   width: 100%;
+  margin-bottom: 150px;
 }
 
 .media__grid .photograph-media-card {
@@ -283,12 +291,23 @@ h1 {
   cursor: pointer;
 }
 
+.media__grid .photograph-media-card img:focus {
+  outline: 3px solid #db8876;
+  border-radius: 2px;
+}
+
 .media__grid .photograph-media-card video {
   width: 300px;
   height: 250px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.media__grid .photograph-media-card video:focus {
+  outline: 3px solid #db8876;
+  border-radius: 2px;
 }
 
 .media__grid .photograph-media-card .desc__wrapper {
@@ -335,7 +354,7 @@ h1 {
   font-size: 1rem;
 }
 
-.photograph-infos {
+.photographer-infos {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -354,7 +373,7 @@ h1 {
   border-radius: 5px;
 }
 
-.photograph-infos .like__container {
+.photographer-infos .like__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -366,17 +385,17 @@ h1 {
           align-items: center;
 }
 
-.photograph-infos .like__container .like__number {
+.photographer-infos .like__container .like__number {
   font-size: 1.5rem;
   margin-right: 0.35rem;
   color: #000000;
 }
 
-.photograph-infos .like__container .like__icon {
+.photographer-infos .like__container .like__icon {
   font-size: 1.5rem;
 }
 
-.photograph-infos .price {
+.photographer-infos .price {
   font-size: 1.5rem;
 }
 
@@ -688,7 +707,6 @@ form button:focus {
   background: url("../assets/images/loader.svg") center center no-repeat;
 }
 
-/*=============== For tablet devices ===============*/
 .dropdown-menu__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -714,6 +732,25 @@ label {
       -ms-user-select: none;
           user-select: none;
   width: 170px;
+}
+
+.select-wrapper:focus {
+  outline: 3px solid #db8876;
+  border-radius: 2px;
+}
+
+.select-wrapper:focus .select {
+  outline: 3px solid #db8876;
+  border-radius: 2px;
+}
+
+.select-wrapper:focus .select .select__trigger {
+  background-color: #db8876;
+}
+
+.select-wrapper:focus .select .custom-options {
+  outline: 3px solid #db8876;
+  border-radius: 2px;
 }
 
 .select {

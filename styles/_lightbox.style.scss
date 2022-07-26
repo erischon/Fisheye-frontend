@@ -109,25 +109,3 @@
   opacity: 0.75;
   background: url("../assets/images/loader.svg") center center no-repeat;
 }
-
-// @keyframes lightboxIn {
-//   from {
-//     opacity: 0;
-//     transform: translateY(-1000px);
-//   }
-//   to {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-// }
-
-/*=============== For tablet devices ===============*/
-
-@media screen and (min-width: 1024px) {
-  // .lightbox {
-  // }
-
-  // .lightbox__container {
-  //   margin: 50px;
-  // }
-}
