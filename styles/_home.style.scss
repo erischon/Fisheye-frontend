@@ -1,4 +1,4 @@
-.photographer_section {
+.photographer__section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 70px;
@@ -12,37 +12,16 @@
     align-items: center;
     flex-direction: column;
 
+    a {
+      text-decoration: none;
+      margin: 0;
+      padding: 0;
+    }
+
     a:focus {
       @include focus;
     }
   }
-}
-
-.photographer_section article img {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  object-fit: cover;
-
-  @include shadow;
-}
-
-.photographer_section article h2 {
-  color: $clr-secondary;
-  font-size: 36px;
-  margin: 1rem 0;
-  white-space: nowrap;
-}
-
-.photographer_section article img {
-  height: 200px;
-  width: 200px;
-}
-
-.photographer_section article a {
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
 }
 
 .card__linkBox {
@@ -50,6 +29,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    @include shadow;
+  }
+
+  h2 {
+    color: $clr-secondary;
+    font-size: 36px;
+    margin: 1rem 0;
+    white-space: nowrap;
+  }
 }
 
 .card__description {
@@ -58,14 +53,14 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-}
 
-.card__location {
-  font-size: 1.35rem;
-  color: $clr-primary;
-}
+  .card__location {
+    font-size: 1.35rem;
+    color: $clr-primary;
+  }
 
-.card__price {
-  color: $clr-gray-light;
-  font-size: 0.9rem;
+  .card__price {
+    color: $clr-gray;
+    font-size: 0.9rem;
+  }
 }

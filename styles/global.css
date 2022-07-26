@@ -80,7 +80,7 @@ h1 {
   height: 50px;
 }
 
-.photographer_section {
+.photographer__section {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(260px, 1fr))[auto-fill];
@@ -90,7 +90,7 @@ h1 {
   margin-bottom: 150px;
 }
 
-.photographer_section article {
+.photographer__section article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,37 +107,15 @@ h1 {
           flex-direction: column;
 }
 
-.photographer_section article a:focus {
-  outline: 3px solid #db8876;
-  border-radius: 2px;
-}
-
-.photographer_section article img {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -webkit-box-shadow: 0 0 6px rgba(128, 128, 128, 0.5);
-  box-shadow: 0 0 6px rgba(128, 128, 128, 0.5);
-}
-
-.photographer_section article h2 {
-  color: #d3573c;
-  font-size: 36px;
-  margin: 1rem 0;
-  white-space: nowrap;
-}
-
-.photographer_section article img {
-  height: 200px;
-  width: 200px;
-}
-
-.photographer_section article a {
+.photographer__section article a {
   text-decoration: none;
   margin: 0;
   padding: 0;
+}
+
+.photographer__section article a:focus {
+  outline: 3px solid #db8876;
+  border-radius: 2px;
 }
 
 .card__linkBox {
@@ -154,6 +132,23 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.card__linkBox img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-shadow: 0 0 6px rgba(128, 128, 128, 0.5);
+          box-shadow: 0 0 6px rgba(128, 128, 128, 0.5);
+}
+
+.card__linkBox h2 {
+  color: #d3573c;
+  font-size: 36px;
+  margin: 1rem 0;
+  white-space: nowrap;
 }
 
 .card__description {
@@ -173,13 +168,13 @@ h1 {
   gap: 0.5rem;
 }
 
-.card__location {
+.card__description .card__location {
   font-size: 1.35rem;
   color: #901c1c;
 }
 
-.card__price {
-  color: #757575;
+.card__description .card__price {
+  color: #525252;
   font-size: 0.9rem;
 }
 

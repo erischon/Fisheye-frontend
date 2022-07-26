@@ -1,10 +1,9 @@
 $clr-primary: #901c1c;
 $clr-secondary: #d3573c;
 $clr-gray: #525252;
-$clr-gray-light: #757575;
 $clr-white: #fafafa;
 
-$color-text-light: $clr-gray-light;
+$color-text-light: $clr-gray;
 $color-background: $clr-white;
 
 $color-button: rgb(144, 28, 28);
@@ -16,6 +15,5 @@ $color-button-hover: rgb(219, 136, 118);
 }
 
 @mixin shadow {
-  -webkit-box-shadow: 0 0 6px hsla(0, 0%, 50%, 0.5);
   box-shadow: 0 0 6px hsla(0, 0%, 50%, 0.5);
 }

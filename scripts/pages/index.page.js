@@ -7,7 +7,7 @@ import { PhotographerCard } from "../views/photographerCard.view.js";
  * @param { Object[]} photographers An array of Photographer instances
  */
 function displayCards(photographers) {
-  const photographersSection = document.querySelector(".photographer_section");
+  const photographersSection = document.querySelector(".photographer__section");
 
   // Create a card for each Photographer and add it to DOM
   photographers.forEach((photographer) => {
