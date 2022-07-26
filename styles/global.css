@@ -228,6 +228,7 @@ h1 {
   background-color: #901c1c;
   font-size: 1.25rem;
   font-weight: 700;
+  letter-spacing: 1px;
   color: white;
   cursor: pointer;
 }
