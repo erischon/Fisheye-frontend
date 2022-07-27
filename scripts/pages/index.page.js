@@ -17,7 +17,7 @@ function displayCards(photographers) {
 }
 
 /**
- *
+ * Home page initialization
  */
 async function init() {
   const { photographers } = await getPhotographersData();

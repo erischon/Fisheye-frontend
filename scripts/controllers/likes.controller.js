@@ -1,24 +1,23 @@
 /**
- * @params {}
- * @property {Object} media
+ * @classdesc
  */
 export class NumberOfLikes {
-  constructor(media, dom) {
+  constructor(media, mediaCardEl) {
     this.currentLikes = media.likes;
-    this.dom = dom;
+    this.mediaCardEl = mediaCardEl;
     this.count = 0;
   }
 
   /**
    * Add eventListener to like__container, on Click and on keypress Enter
-   * @param {HTMLElement} dom
+   * @param {HTMLElement} mediaCardEl
    */
-  addEvent(dom) {
-    const likeDom = dom.querySelector(".like__container");
+  addEvent(mediaCardEl) {
+    const likeContainerEl = mediaCardEl.querySelector(".like__container");
 
-    likeDom.addEventListener("click", this.addLike.bind(this));
+    likeContainerEl.addEventListener("click", this.addLike.bind(this));
 
-    likeDom.addEventListener("keypress", (e) => {
+    likeContainerEl.addEventListener("keypress", (e) => {
       console.log(e.key);
       if (e.key === "Enter") {
         this.addLike();
@@ -38,8 +37,8 @@ export class NumberOfLikes {
     this.count++;
 
     // Updating sum of media likes
-    const likeNumber = this.dom.querySelector(".like__number");
-    likeNumber.innerText = this.currentLikes;
+    const likeNumberEl = this.mediaCardEl.querySelector(".like__number");
+    likeNumberEl.innerText = this.currentLikes;
 
     // Updating sum of photographer total likes
     const likeSumEl = document.querySelector(
@@ -50,8 +49,9 @@ export class NumberOfLikes {
   }
 
   /**
-   * Get the current number of Likes
-   * @return {Number}
+   * Return the current number of Likes
+   * @param {number} currentLikes
+   * @return {number}
    */
   getNumberOfLikes(currentLikes = this.currentLikes) {
     return currentLikes;

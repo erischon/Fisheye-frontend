@@ -53,11 +53,11 @@ const getPhotographerMedias = (data, photographerId) => {
 };
 
 /**
- * Calculate the sum of Likes for ONE Photographer
+ * Return the total of Likes for ONE Photographer
  * @param {Object[]} photographerMediasList An array of Media instances
- * @returns {Number}
+ * @returns {number}
  */
-const getLikesSum = (photographerMediasList) => {
+const getTotalLikes = (photographerMediasList) => {
   return photographerMediasList.reduce((accumulator, object) => {
     return accumulator + object.likes;
   }, 0);
@@ -75,13 +75,13 @@ function displayHeader(photographer) {
 }
 
 /**
- *
- * @param {*} photographer
+ * Create the Contact Modal
+ * @param {Object} photographer A Photographer instance
  */
 function displayModalHtml(photographer) {
   const contactModal = document.querySelector("#contactModal");
-
   const modal = new ContactModal(photographer);
+
   modal.modalAccessibility();
   contactModal.appendChild(modal.getContactModal(photographer));
 
@@ -107,25 +107,16 @@ function displayMedias(photographerMediasList) {
 }
 
 /**
- *
- * @param {*} likes
- * @param {*} photographer
+ * Display the box with Photographer informations
+ * @param {number} totalLikes
+ * @param {Object} photographer A Photographer instance
  */
-export function displayPhotographerInfos(likes, photographer) {
+export function displayPhotographerInfos(totalLikes, photographer) {
   const photographerInfos = document.querySelector("#main");
 
   photographerInfos.appendChild(
-    photographerInfosView(likes, photographer.price)
+    photographerInfosView(totalLikes, photographer.price)
   );
-}
-
-/**
- *
- */
-function displayModalDOM() {
-  const modal = document.querySelector("#main");
-
-  // modal.appendChild(modalView());
 }
 
 /**
@@ -148,13 +139,13 @@ function headSEO(photographer) {
 }
 
 /**
- *
+ * Add event listener to dropdown options
  * @param {Object[]} photographerMediasList An array of Media instances
  */
 function sortEventListener(photographerMediasList) {
-  const dom = document.getElementById("custom-options");
+  const customOption = document.getElementById("custom-options");
 
-  dom.addEventListener("click", (event) => {
+  customOption.addEventListener("click", (event) => {
     sorting(photographerMediasList, event.target.getAttribute("value"));
   });
 }
@@ -162,7 +153,7 @@ function sortEventListener(photographerMediasList) {
 /**
  * Sort the Photographer Media List and display it
  * @param {Object[]} photographerMediasList An array of Media instances
- * @param {String} type
+ * @param {string} type The type of sorting, by default it's likes
  */
 function sorting(photographerMediasList, type = "likes") {
   switch (type) {
@@ -199,7 +190,7 @@ function sorting(photographerMediasList, type = "likes") {
 }
 
 /**
- *
+ * Photographer page initialization
  */
 async function init() {
   const { photographers, medias } = await getPhotographersData();
@@ -208,16 +199,15 @@ async function init() {
   const photographerMediasList = getPhotographerMedias(medias, id).map(
     (item) => new MediaFactory(item)
   );
+  const menu = new DropdownMenu();
 
   headSEO(photographer);
   displayHeader(photographer);
   displayModalHtml(photographer);
-  const menu = new DropdownMenu();
   menu.createMenu();
   sorting(photographerMediasList);
   sortEventListener(photographerMediasList);
-  displayPhotographerInfos(getLikesSum(photographerMediasList), photographer);
-  displayModalDOM();
+  displayPhotographerInfos(getTotalLikes(photographerMediasList), photographer);
 }
 
 init();
