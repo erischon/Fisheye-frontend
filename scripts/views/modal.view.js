@@ -22,8 +22,7 @@ export class ContactModal {
     const modalContent = `
 
         <header class="contact-form__header">
-          <h2>Contactez-moi</h2>
-          <h2>${this._name}</h2>
+          <h1>Contactez-moi ${this._name}</h1>
           <button
             class="modal__close"
             onclick="closeModal()"
