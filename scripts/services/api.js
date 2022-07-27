@@ -1,8 +1,8 @@
 const REST_ENDPOINT = "data/photographers.json";
 
 /**
- * Fetch the data from a virtual API REST Endpoint
- * @return { Promise }
+ * Return the data from a virtual API REST Endpoint
+ * @returns {Promise}
  */
 export async function getPhotographersData() {
   const response = await fetch(REST_ENDPOINT);

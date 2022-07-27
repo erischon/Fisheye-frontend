@@ -1,4 +1,5 @@
 /**
+ * @params {}
  * @property {Object} media
  */
 export class NumberOfLikes {
@@ -50,7 +51,7 @@ export class NumberOfLikes {
 
   /**
    * Get the current number of Likes
-   * @returns {Integer}
+   * @return {Number}
    */
   getNumberOfLikes(currentLikes = this.currentLikes) {
     return currentLikes;

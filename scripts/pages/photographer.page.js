@@ -14,33 +14,35 @@ import { Lightbox } from "../controllers/lightbox.controller.js";
 import { ContactForm } from "../utils/contactForm.util.js";
 
 /**
- * Get the id of photographer
- * @returns { number }
+ * Return the id of a photographer from location
+ * @returns {number}
  */
 const getId = () => {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get("id"));
+
   return id;
 };
 
 /**
- * Get the photographer
- * @param { object[]} photographers List of photographer object
- * @param { number } photographerId
- * @returns { object } A photographer object
+ * Return a photographer instance
+ * @param {Object[]} photographers An array of Photographer instances
+ * @param {number} photographerId
+ * @returns {Object}
  */
 const getPhotographer = (photographers, photographerId) => {
   const photographer = photographers.filter((item) => {
     return item.id === photographerId;
   })[0];
+
   return photographer;
 };
 
 /**
- * Get the list of photographer's media
- * @param { object[]} data List of media object
- * @param { number } photographerId
- * @returns { object[]} List of photographer's media object
+ * Return the list of photographer's media
+ * @param {Object[]} data List of media object
+ * @param {number} photographerId
+ * @returns {Object[]} List of photographer's media instances
  */
 const getPhotographerMedias = (data, photographerId) => {
   const media = data.filter((item) => {
@@ -51,19 +53,19 @@ const getPhotographerMedias = (data, photographerId) => {
 };
 
 /**
- *
- * @param {*} media
- * @returns
+ * Calculate the sum of Likes for ONE Photographer
+ * @param {Object[]} photographerMediasList An array of Media instances
+ * @returns {Number}
  */
-const getLikesSum = (media) => {
-  return media.reduce((accumulator, object) => {
+const getLikesSum = (photographerMediasList) => {
+  return photographerMediasList.reduce((accumulator, object) => {
     return accumulator + object.likes;
   }, 0);
 };
 
 /**
- *
- * @param {*} photographer
+ * Display the header
+ * @param {Object} photographer A Photographer instance
  */
 function displayHeader(photographer) {
   const photographerHeader = document.querySelector(".photographer__header");
@@ -87,19 +89,21 @@ function displayModalHtml(photographer) {
 }
 
 /**
- *
- * @param {*} medias
+ * Display the medias of the photographer (photos and videos) and initialize Lightbox
+ * @param {Object[]} photographerMediasList An array of Media instances
  */
-function displayMedias(medias) {
-  const photographMedia = document.querySelector(".media__grid");
-  photographMedia.replaceChildren();
+function displayMedias(photographerMediasList) {
+  const mediaGrid = document.querySelector(".media__grid");
+  // Deleting the content of the grid
+  mediaGrid.replaceChildren();
 
-  medias.forEach((item) => {
-    const photographerCard = new PhographerMediaCard(item);
-    photographMedia.appendChild(photographerCard.getPhotographerMediaCard());
+  photographerMediasList.forEach((item) => {
+    const card = new PhographerMediaCard(item);
+
+    mediaGrid.appendChild(card.getPhotographerMediaCard());
   });
 
-  Lightbox.init(medias);
+  Lightbox.init(photographerMediasList);
 }
 
 /**
@@ -125,10 +129,10 @@ function displayModalDOM() {
 }
 
 /**
- *
- * @param {*} photographer
+ * Create some SEO informations
+ * @param {Object} photographer A Photographer instance
  */
-function headInfos(photographer) {
+function headSEO(photographer) {
   const head = document.head;
   const title = `Fisheye - ${photographer.name}`;
   const description = `Fisheye - ${photographer.name}, ${photographer.tagline}`;
@@ -145,7 +149,7 @@ function headInfos(photographer) {
 
 /**
  *
- * @param {*} photographerMediasList
+ * @param {Object[]} photographerMediasList An array of Media instances
  */
 function sortEventListener(photographerMediasList) {
   const dom = document.getElementById("custom-options");
@@ -156,21 +160,21 @@ function sortEventListener(photographerMediasList) {
 }
 
 /**
- *
- * @param {*} mediaList
- * @param {*} type
+ * Sort the Photographer Media List and display it
+ * @param {Object[]} photographerMediasList An array of Media instances
+ * @param {String} type
  */
-function sorting(mediaList, type) {
+function sorting(photographerMediasList, type = "likes") {
   switch (type) {
     case "likes":
       // Sorted by likes (descending)
-      mediaList.sort(function (a, b) {
+      photographerMediasList.sort(function (a, b) {
         return b._likes - a._likes;
       });
       break;
     case "title":
       // Sorted by title (alphabetical)
-      mediaList.sort(function (a, b) {
+      photographerMediasList.sort(function (a, b) {
         var titleA = a._title;
         var titleB = b._title;
         return titleA < titleB ? -1 : titleA > titleB ? 1 : 0;
@@ -178,7 +182,7 @@ function sorting(mediaList, type) {
       break;
     case "date":
       // Sorted by date (descending)
-      mediaList.sort(function (a, b) {
+      photographerMediasList.sort(function (a, b) {
         var dateA = a._date;
         var dateB = b._date;
         return dateB < dateA ? -1 : dateB > dateA ? 1 : 0;
@@ -186,12 +190,12 @@ function sorting(mediaList, type) {
       break;
     default:
       // Sorted by likes (descending)
-      mediaList.sort(function (a, b) {
+      photographerMediasList.sort(function (a, b) {
         return b._likes - a._likes;
       });
   }
 
-  displayMedias(mediaList);
+  displayMedias(photographerMediasList);
 }
 
 /**
@@ -200,13 +204,12 @@ function sorting(mediaList, type) {
 async function init() {
   const { photographers, medias } = await getPhotographersData();
   const id = getId();
-
   const photographer = new Photographer(getPhotographer(photographers, id));
   const photographerMediasList = getPhotographerMedias(medias, id).map(
     (item) => new MediaFactory(item)
   );
 
-  headInfos(photographer);
+  headSEO(photographer);
   displayHeader(photographer);
   displayModalHtml(photographer);
   const menu = new DropdownMenu();
