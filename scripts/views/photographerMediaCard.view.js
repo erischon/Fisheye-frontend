@@ -33,7 +33,7 @@ export class PhographerMediaCard {
           ${media}
           <div class="desc__wrapper">
             <p class="desc__title">${this._title}</p>
-            <div class="like__container">
+            <div class="like__container" tabindex="0">
               <span class="like__number">${numberOfLikes.getNumberOfLikes()}</span>
               <span class="material-symbols-outlined like__icon">favorite</span>
             </div>
