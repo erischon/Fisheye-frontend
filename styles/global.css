@@ -251,6 +251,8 @@ h1 {
   margin-left: auto;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-box-shadow: 0 0 6px rgba(128, 128, 128, 0.5);
+          box-shadow: 0 0 6px rgba(128, 128, 128, 0.5);
 }
 
 .media__grid {
@@ -265,7 +267,6 @@ h1 {
       -ms-flex-align: center;
           align-items: center;
   gap: 2rem;
-  background-color: #fafafa;
   width: 100%;
   margin-bottom: 150px;
 }
@@ -335,12 +336,13 @@ h1 {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
+  gap: 1rem;
   margin-top: 0.6rem;
 }
 
 .media__grid .photograph-media-card .desc__wrapper .desc__title {
   max-width: 250px;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -356,17 +358,18 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 0.35rem;
+  font-size: 1.3rem;
   cursor: pointer;
 }
 
-.media__grid .photograph-media-card .desc__wrapper .like__container .like__number {
-  font-size: 1rem;
-  margin-right: 0.35rem;
-  color: #000000;
+.media__grid .photograph-media-card .desc__wrapper .like__container:focus {
+  outline: 3px solid #db8876;
+  border-radius: 2px;
 }
 
-.media__grid .photograph-media-card .desc__wrapper .like__container .like__icon {
-  font-size: 1rem;
+.media__grid .photograph-media-card .desc__wrapper .like__container .like__number {
+  color: #000000;
 }
 
 .photographer-infos {
