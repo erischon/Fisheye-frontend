@@ -450,7 +450,7 @@ h1 {
   width: 100%;
   max-width: 450px;
   margin: 1rem auto;
-  padding: 2rem;
+  padding: 2.5rem;
   -webkit-animation-name: modalopen;
           animation-name: modalopen;
   -webkit-animation-duration: 0.5s;
@@ -500,19 +500,22 @@ h1 {
   height: 1.5rem;
   border: none;
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 1.5rem;
+  right: 2.5rem;
   z-index: 12;
   cursor: pointer;
 }
 
 .contact-form__header .modal__close:focus {
-  border: 2px solid black;
+  outline: 3px solid #901c1c;
+  border-radius: 2px;
+  border-radius: 45%;
 }
 
-.contact-form__header h2 {
+.contact-form__header h1 {
   font-size: 2.5rem;
   font-weight: normal;
+  color: black;
 }
 
 form {
@@ -567,7 +570,8 @@ form .form__data textarea.data-error {
 
 form .form__data input:focus,
 form .form__data textarea:focus {
-  border: 2px solid black;
+  outline: 3px solid #901c1c;
+  border-radius: 2px;
 }
 
 form button {
@@ -587,7 +591,8 @@ form button {
 }
 
 form button:focus {
-  border: 2px solid black;
+  outline: 3px solid #fafafa;
+  border-radius: 2px;
 }
 
 /* Errors */

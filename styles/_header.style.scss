@@ -6,7 +6,7 @@ header {
   height: 90px;
 
   a:focus {
-    @include focus;
+    @include focus(#{$color-button-hover});
   }
 }
 

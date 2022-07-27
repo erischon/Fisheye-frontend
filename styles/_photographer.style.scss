@@ -55,7 +55,7 @@
 
     &:focus {
       background-color: $color-button-hover;
-      @include focus;
+      @include focus(#{$color-button-hover});
     }
   }
 
@@ -107,7 +107,7 @@
       cursor: pointer;
 
       &:focus {
-        @include focus;
+        @include focus(#{$color-button-hover});
       }
     }
 
@@ -119,7 +119,7 @@
       cursor: pointer;
 
       &:focus {
-        @include focus;
+        @include focus(#{$color-button-hover});
       }
     }
 
@@ -152,7 +152,7 @@
         cursor: pointer;
 
         &:focus {
-          @include focus;
+          @include focus(#{$color-button-hover});
         }
 
         .like__number {

@@ -9,8 +9,13 @@ $color-background: white;
 $color-button: $clr-primary;
 $color-button-hover: $clr-secondary-light;
 
-@mixin focus {
-  outline: 3px solid $color-button-hover;
+@mixin focus($color) {
+  outline: 3px solid #{$color};
+  border-radius: 2px;
+}
+
+@mixin focus-primary {
+  outline: 3px solid $clr-primary;
   border-radius: 2px;
 }
 

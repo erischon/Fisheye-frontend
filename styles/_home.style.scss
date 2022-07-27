@@ -19,7 +19,7 @@
     }
 
     a:focus {
-      @include focus;
+      @include focus(#{$color-button-hover});
     }
   }
 }
