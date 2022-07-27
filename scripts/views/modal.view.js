@@ -1,23 +1,39 @@
+/**
+ * @class
+ */
 export class ContactModal {
-  constructor(data) {
-    this._id = data.id;
-    this._name = data.name;
+  /**
+   * @constructs ContactModal
+   * @param {Object} photographer A Photographer instance
+   * @param {number} photographer.id
+   * @param {string} photographer.name
+   */
+  constructor(photographer) {
+    this._id = photographer.id;
+    this._name = photographer.name;
   }
 
+  /**
+   * Set the accessibility to the modal
+   */
   modalAccessibility() {
-    const modal = document.getElementById("contactModal");
+    const modalEl = document.getElementById("contactModal");
 
-    modal.setAttribute("role", "dialog");
-    modal.setAttribute("aria-labelledby", "contact-form");
-    modal.setAttribute("aria-describedby", "Contact form");
-    modal.setAttribute("aria-modal", "true");
-    modal.setAttribute("aria-hidden", "true");
-    modal.setAttribute("tabindex", "-1");
+    modalEl.setAttribute("role", "dialog");
+    modalEl.setAttribute("aria-labelledby", "contact-form");
+    modalEl.setAttribute("aria-describedby", "Contact form");
+    modalEl.setAttribute("aria-modal", "true");
+    modalEl.setAttribute("aria-hidden", "true");
+    modalEl.setAttribute("tabindex", "-1");
   }
 
+  /**
+   * Return the content of the modal
+   * @returns {HTMLElement}
+   */
   getContactModal() {
-    const modal = document.createElement("div");
-    modal.classList.add("modal");
+    const modalDivEl = document.createElement("div");
+    modalDivEl.classList.add("modal");
 
     const modalContent = `
 
@@ -59,8 +75,8 @@ export class ContactModal {
 
       `;
 
-    modal.innerHTML = modalContent;
+    modalDivEl.innerHTML = modalContent;
 
-    return modal;
+    return modalDivEl;
   }
 }

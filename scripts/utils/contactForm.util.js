@@ -1,3 +1,6 @@
+/**
+ * @class
+ */
 export class ContactForm {
   static init() {
     const contactForm = document.getElementById("contact");

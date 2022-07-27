@@ -11,6 +11,10 @@ const keyCodes = {
   escape: 27,
 };
 
+/**
+ *
+ * @returns
+ */
 const displayModal = () => {
   const modal = document.getElementById("contactModal");
   const mainDocument = document.getElementById("main");
@@ -31,6 +35,9 @@ const displayModal = () => {
   }, 100);
 };
 
+/**
+ *
+ */
 const closeModal = () => {
   const modal = document.getElementById("contactModal");
   const mainDocument = document.getElementById("main");
@@ -41,6 +48,10 @@ const closeModal = () => {
   contactButton.focus();
 };
 
+/**
+ *
+ * @param {*} e
+ */
 const onKeyUp = (e) => {
   if (e.key === "Escape" || e.key === "Esc" || e.keyCode === keyCodes.escape) {
     closeModal(e);
