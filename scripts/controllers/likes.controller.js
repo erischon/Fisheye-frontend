@@ -9,17 +9,24 @@ export class NumberOfLikes {
   }
 
   /**
-   * Adding an eventListener to like__container
+   * Add eventListener to like__container, on Click and on keypress Enter
    * @param {HTMLElement} dom
    */
   addEvent(dom) {
-    dom
-      .querySelector(".like__container")
-      .addEventListener("click", this.addLike.bind(this));
+    const likeDom = dom.querySelector(".like__container");
+
+    likeDom.addEventListener("click", this.addLike.bind(this));
+
+    likeDom.addEventListener("keypress", (e) => {
+      console.log(e.key);
+      if (e.key === "Enter") {
+        this.addLike();
+      }
+    });
   }
 
   /**
-   * Add one like to a media and to the sum of photographer total likes
+   * Add ONE like to a media and to the sum of photographer total likes
    */
   addLike() {
     if (this.count >= 1) {
@@ -42,7 +49,7 @@ export class NumberOfLikes {
   }
 
   /**
-   *
+   * Get the current number of Likes
    * @returns {Integer}
    */
   getNumberOfLikes(currentLikes = this.currentLikes) {
