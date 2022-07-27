@@ -22,6 +22,7 @@ export class Lightbox {
     mediaList.forEach((media) => {
       const html = document.getElementsByClassName(`${media.id}`);
 
+      // Add event on click who open a lightbox for the media
       html[0].addEventListener("click", (e) => {
         e.preventDefault();
         const type = media.constructor.name;
@@ -36,6 +37,25 @@ export class Lightbox {
         }
 
         new Lightbox(type, url, mediaLinks, mediaTitles);
+      });
+
+      // Add event on keypress Enter who open a lightbox for the media
+      html[0].addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          const type = media.constructor.name;
+          let url = "";
+
+          if (type === "MediaImage") {
+            url = media.image;
+          } else if (type === "MediaVideo") {
+            url = media.video;
+          } else {
+            url = null;
+          }
+
+          new Lightbox(type, url, mediaLinks, mediaTitles);
+        }
       });
     });
   }
