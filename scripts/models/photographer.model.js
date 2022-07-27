@@ -1,15 +1,26 @@
 /**
- *Photographer Model
+ * @class Photographer Model
  */
 export class Photographer {
-  constructor(data) {
-    this._name = data.name;
-    this._id = data.id;
-    this._city = data.city;
-    this._country = data.country;
-    this._tagline = data.tagline;
-    this._price = data.price;
-    this._portrait = data.portrait;
+  /**
+   * @constructs Photographer
+   * @param {Object} photographerData Data of a Photographer
+   * @param {string} photographerData.name
+   * @param {number} photographerData.id
+   * @param {string} photographerData.city
+   * @param {string} photographerData.country
+   * @param {string} photographerData.tagline
+   * @param {number} photographerData.price
+   * @param {string} photographerData.portrait
+   */
+  constructor(photographerData) {
+    this._name = photographerData.name;
+    this._id = photographerData.id;
+    this._city = photographerData.city;
+    this._country = photographerData.country;
+    this._tagline = photographerData.tagline;
+    this._price = photographerData.price;
+    this._portrait = photographerData.portrait;
     this._path = "photographer.html";
   }
 

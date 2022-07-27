@@ -2,8 +2,14 @@
  * @classdesc
  */
 export class NumberOfLikes {
-  constructor(media, mediaCardEl) {
-    this.currentLikes = media.likes;
+  /**
+   * @constructs NumberOfLikes
+   * @param {Object} mediaObject A MediaImage or MediaVideo instance
+   * @param {number} mediaObject.likes
+   * @param {HTMLElement} mediaCardEl
+   */
+  constructor(mediaObject, mediaCardEl) {
+    this.currentLikes = mediaObject.likes;
     this.mediaCardEl = mediaCardEl;
     this.count = 0;
   }
@@ -18,7 +24,6 @@ export class NumberOfLikes {
     likeContainerEl.addEventListener("click", this.addLike.bind(this));
 
     likeContainerEl.addEventListener("keypress", (e) => {
-      console.log(e.key);
       if (e.key === "Enter") {
         this.addLike();
       }

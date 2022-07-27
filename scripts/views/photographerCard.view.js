@@ -1,21 +1,31 @@
-export class PhotographerCard {
-  constructor(data) {
-    this._id = data.id;
-    this._name = data.name;
-    this._city = data.city;
-    this._country = data.country;
-    this._tagline = data.tagline;
-    this._price = data.price;
-    this._portrait = data.portrait;
-    this._path = data.photographerUrl;
+import { Photographer } from "../models/photographer.model.js";
+
+/**
+ * @class
+ */
+export class PhotographerCard extends Photographer {
+  /**
+   * @constructs PhotographerCard
+   * @param {Object} photographerData Data of a Photographer
+   * @param {string} photographerData.name
+   * @param {number} photographerData.id
+   * @param {string} photographerData.city
+   * @param {string} photographerData.country
+   * @param {string} photographerData.tagline
+   * @param {number} photographerData.price
+   * @param {string} photographerData.portrait
+   */
+  constructor(photographerData) {
+    super(photographerData);
+    this._path = photographerData.photographerUrl;
   }
 
   /**
-   * Create a photographer card
-   * @return { HTMLElement }
+   * Return a photographer card
+   * @return {HTMLElement}
    */
   getPhotographerCard() {
-    const article = document.createElement("article");
+    const articleEl = document.createElement("article");
 
     const photographerCard = `
 
@@ -33,8 +43,8 @@ export class PhotographerCard {
 
     `;
 
-    article.innerHTML = photographerCard;
+    articleEl.innerHTML = photographerCard;
 
-    return article;
+    return articleEl;
   }
 }

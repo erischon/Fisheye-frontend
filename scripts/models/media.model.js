@@ -1,11 +1,24 @@
+/**
+ * @class
+ */
 export class Media {
-  constructor(data) {
-    this._id = data.id;
-    this._photographerId = data.photographerId;
-    this._title = data.title;
-    this._likes = data.likes;
-    this._date = data.date;
-    this._price = data.price;
+  /**
+   * @constructs Media
+   * @param {Object} mediaData Data of a media
+   * @param {number} mediaData.id
+   * @param {number} mediaData.photographerId
+   * @param {string} mediaData.title
+   * @param {number} mediaData.likes
+   * @param {string} mediaData.date
+   * @param {number} mediaData.price
+   */
+  constructor(mediaData) {
+    this._id = mediaData.id;
+    this._photographerId = mediaData.photographerId;
+    this._title = mediaData.title;
+    this._likes = mediaData.likes;
+    this._date = mediaData.date;
+    this._price = mediaData.price;
     this._path = "photographer.html";
   }
 
@@ -34,10 +47,18 @@ export class Media {
   }
 }
 
+/**
+ * @class
+ */
 export class MediaImage extends Media {
-  constructor(data) {
-    super(data);
-    this._image = data.image;
+  /**
+   * @constructs MediaImage
+   * @param {Object} mediaData
+   * @param {string} mediaData.image
+   */
+  constructor(mediaData) {
+    super(mediaData);
+    this._image = mediaData.image;
   }
 
   get image() {
@@ -45,10 +66,18 @@ export class MediaImage extends Media {
   }
 }
 
+/**
+ * @class
+ */
 export class MediaVideo extends Media {
-  constructor(data) {
-    super(data);
-    this._video = data.video;
+  /**
+   * @constructs MediaVideo
+   * @param {Object} mediaData
+   * @param {string} mediaData.video
+   */
+  constructor(mediaData) {
+    super(mediaData);
+    this._video = mediaData.video;
   }
 
   get video() {

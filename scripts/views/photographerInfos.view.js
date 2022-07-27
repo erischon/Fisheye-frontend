@@ -1,17 +1,23 @@
-export const photographerInfosView = (likes, price) => {
-  const article = document.createElement("article");
-  article.classList.add("photographer-infos");
+/**
+ * Return the Photographer Infos Box
+ * @param {number} totalLikes
+ * @param {number} price
+ * @returns {HTMLElement}
+ */
+export const photographerInfosView = (totalLikes, price) => {
+  const articleEl = document.createElement("article");
+  articleEl.classList.add("photographer-infos");
 
   const photographerInfos = `
       <div class="like__container">
-        <span class="like__number">${likes}</span>
+        <span class="like__number">${totalLikes}</span>
         <span class="material-symbols-outlined like__icon">favorite</span>
       </div>
 
       <p class="price">${price}€/jours</p>
   `;
 
-  article.innerHTML = photographerInfos;
+  articleEl.innerHTML = photographerInfos;
 
-  return article;
+  return articleEl;
 };

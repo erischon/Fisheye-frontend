@@ -1,18 +1,23 @@
-export class PhotographerHeader {
-  constructor(data) {
-    this._id = data.id;
-    this._name = data.name;
-    this._city = data.city;
-    this._country = data.country;
-    this._tagline = data.tagline;
-    this._price = data.price;
-    this._portrait = data.portrait;
-    this._path = data.photographerUrl;
+import { Photographer } from "../models/photographer.model.js";
+/**
+ * @class
+ */
+export class PhotographerHeader extends Photographer {
+  /**
+   * @constructs PhotographerHeader
+   * @param {Object} photographer Photographer instance
+   */
+  constructor(photographer) {
+    super(photographer);
   }
 
+  /**
+   * Return the photographer header
+   * @returns {HTMLElement}
+   */
   getPhotographerHeader() {
-    const article = document.createElement("article");
-    article.classList.add("photographer-header");
+    const articleEl = document.createElement("article");
+    articleEl.classList.add("photographer-header");
 
     const photographerHeader = `
         
@@ -36,8 +41,8 @@ export class PhotographerHeader {
         
       `;
 
-    article.innerHTML = photographerHeader;
+    articleEl.innerHTML = photographerHeader;
 
-    return article;
+    return articleEl;
   }
 }

@@ -105,7 +105,7 @@ export class ContactForm {
           email: emailValue,
           message: messageValue,
         };
-        console.log(formData);
+        console.log("Form Data: ", formData);
 
         contactForm.reset();
         closeModal();

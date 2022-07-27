@@ -124,7 +124,6 @@ export class Lightbox {
     };
 
     image.src = url;
-    console.log(image.src);
   }
 
   /**
@@ -160,7 +159,6 @@ export class Lightbox {
     // };
 
     video.src = url;
-    console.log(video.src);
   }
 
   /**
