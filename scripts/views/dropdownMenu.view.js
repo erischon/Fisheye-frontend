@@ -1,8 +1,15 @@
+/**
+ * @class
+ */
 export class DropdownMenu {
   constructor() {}
 
+  /**
+   *
+   * @returns {HTMLElement}
+   */
   createMenu() {
-    const menuDom = document.querySelector(".dropdown-menu__container");
+    const dropdownEl = document.querySelector(".dropdown-menu__container");
 
     const dropdowMenu = `
         
@@ -27,26 +34,37 @@ export class DropdownMenu {
 
     `;
 
-    menuDom.innerHTML = dropdowMenu;
+    dropdownEl.innerHTML = dropdowMenu;
 
-    const wrapper = menuDom.querySelector(".select-wrapper");
+    const wrapperEl = dropdownEl.querySelector(".select-wrapper");
 
-    wrapper.addEventListener("click", function () {
+    /**
+     * Add event listener on click for opening the dropdown
+     */
+    wrapperEl.addEventListener("click", function () {
       this.querySelector(".select").classList.toggle("open");
     });
 
-    wrapper.addEventListener("focus", function () {
+    /**
+     * Add event listener on focus for opening the dropdown
+     */
+    wrapperEl.addEventListener("focus", function () {
       this.querySelector(".select").classList.toggle("open");
     });
 
-    wrapper.addEventListener("focusout", function () {
+    /**
+     * Add event listener on focusout for closing the dropdown
+     */
+    wrapperEl.addEventListener("focusout", function () {
       this.querySelector(".select").classList.remove("open");
     });
 
     // menuDom.focus();
 
-    //
-    for (const option of menuDom.querySelectorAll(".custom-option")) {
+    /**
+     *
+     */
+    for (const option of dropdownEl.querySelectorAll(".custom-option")) {
       option.addEventListener("click", function () {
         if (!this.classList.contains("selected")) {
           this.parentNode
@@ -60,14 +78,35 @@ export class DropdownMenu {
       });
     }
 
-    // Close the dropdown if user click outside
+    /**
+     * Close the dropdown if user click outside of the dropdown
+     */
     window.addEventListener("click", function (e) {
-      const select = menuDom.querySelector(".select");
+      const select = dropdownEl.querySelector(".select");
       if (!select.contains(e.target)) {
         select.classList.remove("open");
       }
     });
 
-    return menuDom;
+    return dropdownEl;
+  }
+
+  /**
+   * Go to next option
+   * @param {KeyboardEvent} e
+   */
+  nextOption(e) {
+    e.preventDefault();
+
+    let i = this.images.findIndex((image) => image === this.url);
+    if (i === this.images.length - 1) {
+      i = -1;
+    }
+
+    if (this.images[i + 1].includes(".jpg")) {
+      this.loadImage(this.images[i + 1]);
+    } else if (this.images[i + 1].includes(".mp4")) {
+      this.loadVideo(this.images[i + 1]);
+    }
   }
 }

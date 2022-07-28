@@ -807,6 +807,10 @@ label {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
+  -webkit-animation-name: dropdownOpen;
+          animation-name: dropdownOpen;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
 }
 
 .custom-option {
@@ -858,5 +862,23 @@ hr {
 .open .arrow::after {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
+}
+
+@-webkit-keyframes dropdownOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dropdownOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=global.css.map */

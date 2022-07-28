@@ -220,28 +220,35 @@ export class Lightbox {
    * @param {string} url Image URL
    * @return {HTMLElement}
    */
-  buildDom(url) {
-    const lightboxDom = document.createElement("section");
+  buildDom() {
+    const lightboxEl = document.createElement("section");
+    lightboxEl.classList.add("lightbox");
 
-    lightboxDom.classList.add("lightbox");
-    lightboxDom.innerHTML = `
-      <div class="lightbox__wrapper">
-        <button class="lightbox__close"></button>
-        <button class="lightbox__next"></button>
-        <button class="lightbox__prev"></button>
-        <div class="lightbox__container"></div>
-      </div>
+    lightboxEl.setAttribute("role", "dialog");
+    lightboxEl.setAttribute("aria-labelledby", "lightbox");
+    lightboxEl.setAttribute("aria-describedby", "lightbox");
+    lightboxEl.setAttribute("aria-modal", "true");
+    lightboxEl.setAttribute("aria-hidden", "true");
+    lightboxEl.setAttribute("tabindex", "-1");
+
+    lightboxEl.innerHTML = `
+    <div class="lightbox__wrapper">
+    <button class="lightbox__close"></button>
+    <button class="lightbox__next"></button>
+    <button class="lightbox__prev"></button>
+    <div class="lightbox__container"></div>
+    </div>
     `;
-    lightboxDom
+    lightboxEl
       .querySelector(".lightbox__close")
       .addEventListener("click", this.close.bind(this));
-    lightboxDom
+    lightboxEl
       .querySelector(".lightbox__next")
       .addEventListener("click", this.next.bind(this));
-    lightboxDom
+    lightboxEl
       .querySelector(".lightbox__prev")
       .addEventListener("click", this.prev.bind(this));
 
-    return lightboxDom;
+    return lightboxEl;
   }
 }

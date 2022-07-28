@@ -49,7 +49,7 @@ const closeModal = () => {
 
 /**
  * Close the modal on Keyboard event
- * @param {Object} e
+ * @param {KeyboardEvent} e
  */
 const onKeyUp = (e) => {
   if (e.key === "Escape" || e.key === "Esc" || e.keyCode === keyCodes.escape) {
