@@ -565,7 +565,7 @@ form .form__data textarea {
 form .form__data input.data-error,
 form .form__data textarea.data-error {
   border: 2px solid red;
-  background-color: #f0f0f0;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 form .form__data input:focus,

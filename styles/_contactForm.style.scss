@@ -66,7 +66,7 @@ form {
 
       &.data-error {
         border: 2px solid red;
-        background-color: #f0f0f0;
+        background-color: rgba(255, 255, 255, 0.9);
       }
 
       &:focus {
@@ -84,7 +84,7 @@ form {
     border: none;
     border-radius: 5px;
     outline: none;
-    background: #901c1c;
+    background: $clr-primary;
 
     font-size: 1rem;
     font-weight: 700;
