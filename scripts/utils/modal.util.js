@@ -12,18 +12,17 @@ const keyCodes = {
 };
 
 /**
- *
- * @returns
+ * Display modal and focus the first focusable element
  */
 const displayModal = () => {
-  const modal = document.getElementById("contactModal");
-  const mainDocument = document.getElementById("main");
+  const modalEl = document.getElementById("contactModal");
+  const mainDocumentEl = document.getElementById("main");
 
-  mainDocument.setAttribute("aria-hidden", true);
-  modal.style.display = "block";
-  modal.addEventListener("keyup", onKeyUp);
+  mainDocumentEl.setAttribute("aria-hidden", true);
+  modalEl.style.display = "block";
+  modalEl.addEventListener("keyup", onKeyUp);
 
-  const focusableElements = modal.querySelectorAll(focusableElementsArray);
+  const focusableElements = modalEl.querySelectorAll(focusableElementsArray);
   const firstFocusableElement = focusableElements[0];
 
   if (!firstFocusableElement) {
@@ -36,21 +35,21 @@ const displayModal = () => {
 };
 
 /**
- *
+ * Close the mmodal
  */
 const closeModal = () => {
-  const modal = document.getElementById("contactModal");
-  const mainDocument = document.getElementById("main");
-  const contactButton = document.querySelector(".contact-button");
+  const modalEl = document.getElementById("contactModal");
+  const mainDocumentEl = document.getElementById("main");
+  const contactButtonEl = document.querySelector(".contact-button");
 
-  mainDocument.setAttribute("aria-hidden", false);
-  modal.style.display = "none";
-  contactButton.focus();
+  mainDocumentEl.setAttribute("aria-hidden", false);
+  modalEl.style.display = "none";
+  contactButtonEl.focus();
 };
 
 /**
- *
- * @param {*} e
+ * Close the modal on Keyboard event
+ * @param {Object} e
  */
 const onKeyUp = (e) => {
   if (e.key === "Escape" || e.key === "Esc" || e.keyCode === keyCodes.escape) {
