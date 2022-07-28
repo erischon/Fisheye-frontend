@@ -2,8 +2,11 @@
  * @class
  */
 export class ContactForm {
+  /**
+   * Initialization of the form
+   */
   static init() {
-    const contactForm = document.getElementById("contact");
+    const contactFormEl = document.getElementById("contact");
 
     // Error messages
     const firstNameMsg =
@@ -13,48 +16,69 @@ export class ContactForm {
     const emailMsg = "Veuillez entrer une adresse email valide.";
     const messageMsg = "Veuillez laisser un message d'au moins 10 caractères.";
 
-    // Submit Form
-    contactForm.addEventListener("submit", (e) => {
+    /**
+     * Add an event listener to the form who will validate the inputs
+     */
+    contactFormEl.addEventListener("submit", (e) => {
       e.preventDefault();
       validateInputs();
     });
 
-    // Set to Error
+    /**
+     * Set to error
+     * @param {HTMLElement} element
+     * @param {string} message
+     */
     const setError = (element, message) => {
-      const formData = element.parentElement;
+      const formDataEl = element.parentElement;
 
-      formData.classList.add("data-error");
-      formData.setAttribute("data-error", message);
+      formDataEl.classList.add("data-error");
+      formDataEl.setAttribute("data-error", message);
       element.classList.add("data-error");
 
-      formData.classList.remove("success");
+      formDataEl.classList.remove("success");
     };
 
-    // Set to Success
+    /**
+     * Set to success
+     * @param {HTMLElement} element
+     */
     const setSuccess = (element) => {
-      const formData = element.parentElement;
+      const formDataEl = element.parentElement;
 
-      formData.classList.remove("data-error");
-      formData.removeAttribute("data-error");
+      formDataEl.classList.remove("data-error");
+      formDataEl.removeAttribute("data-error");
       element.classList.remove("data-error");
 
-      formData.classList.add("success");
+      formDataEl.classList.add("success");
     };
 
-    // Email Validation
+    /**
+     *
+     * @param {string} email
+     * @returns {boolean}
+     */
     const isValidEmail = (email) => {
       const re =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
     };
 
-    // Inputs Validation Function
+    /**
+     * Inputs Validation
+     */
     function validateInputs() {
       // Get the values
       const firstNameValue = document.getElementById("firstName").value.trim();
       const lastNameValue = document.getElementById("lastName").value.trim();
       const emailValue = document.getElementById("email").value.trim();
       const messageValue = document.getElementById("message").value.trim();
+
+      // Get the elements
+      const firstNameEl = document.getElementById("firstName");
+      const lastNameEl = document.getElementById("lastName");
+      const emailEl = document.getElementById("email");
+      const messageEl = document.getElementById("message");
 
       // Set the validation
       let firstNameValidation = false;
@@ -64,35 +88,35 @@ export class ContactForm {
 
       // First name validation
       if (firstNameValue === "" || firstNameValue.length < 2) {
-        setError(firstName, firstNameMsg);
+        setError(firstNameEl, firstNameMsg);
       } else {
-        setSuccess(firstName);
+        setSuccess(firstNameEl);
         firstNameValidation = true;
       }
 
       // Last name validation
       if (lastNameValue === "" || lastNameValue.length < 2) {
-        setError(lastName, lastNameMsg);
+        setError(lastNameEl, lastNameMsg);
       } else {
-        setSuccess(lastName);
+        setSuccess(lastNameEl);
         lastNameValidation = true;
       }
 
       // Email validation
       if (emailValue === "") {
-        setError(email, emailMsg);
+        setError(emailEl, emailMsg);
       } else if (!isValidEmail(emailValue)) {
-        setError(email, emailMsg);
+        setError(emailEl, emailMsg);
       } else {
-        setSuccess(email);
+        setSuccess(emailEl);
         emailValidation = true;
       }
 
       // Message validation
       if (messageValue === "" || messageValue.length < 10) {
-        setError(message, messageMsg);
+        setError(messageEl, messageMsg);
       } else {
-        setSuccess(message);
+        setSuccess(messageEl);
         messageValidation = true;
       }
 
@@ -110,7 +134,7 @@ export class ContactForm {
         };
         console.log("Form Data: ", formData);
 
-        contactForm.reset();
+        contactFormEl.reset();
         closeModal();
       }
     }
