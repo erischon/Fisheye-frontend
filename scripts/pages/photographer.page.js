@@ -143,17 +143,40 @@ function headSEO(photographer) {
  * @param {Object[]} photographerMediasList An array of Media instances
  */
 function sortEventListener(photographerMediasList) {
-  const customOption = document.getElementById("custom-options");
+  const customOptionEl = document.getElementById("custom-options");
+  const menu = new DropdownMenu();
 
-  customOption.addEventListener("click", (event) => {
+  // With click use
+  customOptionEl.addEventListener("click", (event) => {
     sorting(photographerMediasList, event.target.getAttribute("value"));
+  });
+
+  // With keyboard use
+  const wrapperEl = document.querySelector(".select-wrapper");
+  wrapperEl.addEventListener("keypress", (event) => {
+    switch (event.key) {
+      case "p":
+        sorting(photographerMediasList, "likes");
+        menu.stylingDropdown("likes");
+        break;
+      case "t":
+        sorting(photographerMediasList, "title");
+        menu.stylingDropdown("title");
+        break;
+      case "d":
+        sorting(photographerMediasList, "date");
+        menu.stylingDropdown("date");
+        break;
+      default:
+        return;
+    }
   });
 }
 
 /**
  * Sort the Photographer Media List and display it
  * @param {Object[]} photographerMediasList An array of Media instances
- * @param {string} type The type of sorting, by default it's likes
+ * @param {string} type The type of sorting, by default likes
  */
 function sorting(photographerMediasList, type = "likes") {
   switch (type) {

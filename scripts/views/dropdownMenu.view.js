@@ -22,11 +22,11 @@ export class DropdownMenu {
           </div>
 
           <div class="custom-options" id="custom-options">
-            <span class="custom-option likes selected" value="likes" role="listitem">Popularité</span>
+            <span class="custom-option likes selected" value="likes" role="listitem"><span class="underline">P</span>opularité</span>
             <hr />
-            <span class="custom-option title" value="title" role="listitem">Titre</span>
+            <span class="custom-option title" value="title" role="listitem"><span class="underline">T</span>itre</span>
             <hr />
-            <span class="custom-option date" value="date" role="listitem">Date</span>
+            <span class="custom-option date" value="date" role="listitem"><span class="underline">D</span>ate</span>
           </div>
 
         </div>
@@ -60,7 +60,7 @@ export class DropdownMenu {
     });
 
     /**
-     *
+     * Manage the options style
      */
     for (const option of dropdownEl.querySelectorAll(".custom-option")) {
       option.addEventListener("click", function () {
@@ -90,21 +90,25 @@ export class DropdownMenu {
   }
 
   /**
-   * Go to next option
-   * @param {KeyboardEvent} e
+   * Styling the dropdown after a Keypress use
+   * @param {string} selectedOption
    */
-  nextOption(e) {
-    e.preventDefault();
+  stylingDropdown(selectedOption) {
+    const wrapperEl = document.querySelector(".select-wrapper");
 
-    let i = this.images.findIndex((image) => image === this.url);
-    if (i === this.images.length - 1) {
-      i = -1;
+    const option = wrapperEl.querySelector(`.${selectedOption}`);
+
+    if (!option.classList.contains("selected")) {
+      option.parentNode
+        .querySelector(".custom-option.selected")
+        .classList.remove("selected");
+      option.classList.add("selected");
+      option
+        .closest(".select")
+        .querySelector(".select__trigger span").textContent =
+        option.textContent;
     }
 
-    if (this.images[i + 1].includes(".jpg")) {
-      this.loadImage(this.images[i + 1]);
-    } else if (this.images[i + 1].includes(".mp4")) {
-      this.loadVideo(this.images[i + 1]);
-    }
+    // wrapperEl.querySelector(".select").classList.remove("open");
   }
 }
