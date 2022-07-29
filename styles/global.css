@@ -670,6 +670,12 @@ form button:focus {
   z-index: 11;
 }
 
+.lightbox__next:focus,
+.lightbox__prev:focus {
+  outline: 3px solid #d3573c;
+  border-radius: 2px;
+}
+
 .lightbox__prev {
   right: auto;
   left: 3rem;
@@ -686,6 +692,12 @@ form button:focus {
   top: 2rem;
   right: 3rem;
   z-index: 12;
+}
+
+.lightbox__close:focus {
+  outline: 3px solid #d3573c;
+  border-radius: 2px;
+  border-radius: 45%;
 }
 
 .lightbox__container {
@@ -713,6 +725,8 @@ form button:focus {
   max-height: 1040px;
   width: 100%;
   height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .lightbox__title {
