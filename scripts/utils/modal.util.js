@@ -7,10 +7,6 @@ const focusableElementsArray = [
   '[tabindex]:not([tabindex="-1"])',
 ];
 
-const keyCodes = {
-  escape: 27,
-};
-
 /**
  * Display modal and focus the first focusable element
  */
@@ -52,7 +48,7 @@ const closeModal = () => {
  * @param {KeyboardEvent} e
  */
 const onKeyUp = (e) => {
-  if (e.key === "Escape" || e.key === "Esc" || e.keyCode === keyCodes.escape) {
+  if (e.key === "Escape" || e.key === "Esc") {
     closeModal(e);
   }
 };
