@@ -1,13 +1,13 @@
 /**
- * @property {HTMLElement} element
- * @property {string[]} images
- * @property {string[]} imagesTitles
- * @property {string} url
+ * @class
  */
-
 export class Lightbox {
-  static init(media) {
-    const mediaList = Array.from(media);
+  /**
+   * Initialization
+   * @param {Object[]} photographerMediasList An array of Media instances
+   */
+  static init(photographerMediasList) {
+    const mediaList = Array.from(photographerMediasList);
 
     const mediaLinks = mediaList.map((media) => {
       if (media.constructor.name === "MediaVideo") {
@@ -61,15 +61,18 @@ export class Lightbox {
   }
 
   /**
-   * @param {string} url Image URL
-   * @param {string[]} images Images paths
-   * @param {string[]} imagesTitles Media titles
+   * @constructs Lightbox
+   * @param {string} type Type of the media
+   * @param {string} url Image Url
+   * @param {string[]} images Array of Images Url
+   * @param {string[]} imagesTitles Array of Media titles
    */
   constructor(type, url, images, imagesTitles) {
     this.element = this.buildDom(url);
     this.images = images;
     this.imagesTitles = imagesTitles;
     this.onKeyUp = this.onKeyUp.bind(this);
+
     if (type === "MediaImage") {
       this.loadImage(url);
     }
@@ -217,7 +220,6 @@ export class Lightbox {
 
   /**
    * Build the DOM
-   * @param {string} url Image URL
    * @return {HTMLElement}
    */
   buildDom() {
@@ -232,13 +234,16 @@ export class Lightbox {
     lightboxEl.setAttribute("tabindex", "-1");
 
     lightboxEl.innerHTML = `
+
     <div class="lightbox__wrapper">
-    <button class="lightbox__close"></button>
-    <button class="lightbox__next"></button>
-    <button class="lightbox__prev"></button>
-    <div class="lightbox__container"></div>
+      <button class="lightbox__close"></button>
+      <button class="lightbox__prev"></button>
+      <button class="lightbox__next"></button>
+      <div class="lightbox__container"></div>
     </div>
+    
     `;
+
     lightboxEl
       .querySelector(".lightbox__close")
       .addEventListener("click", this.close.bind(this));
@@ -248,6 +253,12 @@ export class Lightbox {
     lightboxEl
       .querySelector(".lightbox__prev")
       .addEventListener("click", this.prev.bind(this));
+
+    const focusElement = lightboxEl.querySelector(".lightbox__close");
+
+    window.setTimeout(() => {
+      focusElement.focus();
+    }, 100);
 
     return lightboxEl;
   }
