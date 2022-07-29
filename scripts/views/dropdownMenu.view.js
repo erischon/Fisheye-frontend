@@ -59,8 +59,6 @@ export class DropdownMenu {
       this.querySelector(".select").classList.remove("open");
     });
 
-    // menuDom.focus();
-
     /**
      *
      */
