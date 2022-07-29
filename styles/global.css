@@ -756,7 +756,7 @@ form button:focus {
   margin-bottom: 2rem;
 }
 
-label {
+.dropdown-menu__container label {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
@@ -769,6 +769,7 @@ label {
       -ms-user-select: none;
           user-select: none;
   width: 170px;
+  outline: none;
 }
 
 .select {
@@ -782,7 +783,7 @@ label {
           flex-direction: column;
 }
 
-.select__trigger {
+.select .select__trigger {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -800,7 +801,7 @@ label {
   color: white;
 }
 
-.custom-options {
+.select .custom-options {
   position: absolute;
   display: block;
   top: 100%;
@@ -809,8 +810,6 @@ label {
   border: 2px solid #901c1c;
   border-top: 0;
   background: #901c1c;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -827,6 +826,12 @@ label {
           animation-duration: 0.3s;
 }
 
+.select.open .custom-options .underline {
+  text-decoration: underline;
+  font-weight: 700;
+  margin-right: 2px;
+}
+
 .custom-option {
   display: block;
   position: relative;
@@ -835,8 +840,6 @@ label {
   font-weight: 300;
   color: white;
   cursor: pointer;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
 }
 
 hr {
