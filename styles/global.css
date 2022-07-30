@@ -717,7 +717,7 @@ form button:focus {
   position: relative;
   margin: 2rem 6rem;
   max-width: 100%;
-  min-height: 100%;
+  min-height: 500px;
 }
 
 .lightbox__container img {
