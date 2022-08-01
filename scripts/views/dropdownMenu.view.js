@@ -14,19 +14,19 @@ export class DropdownMenu {
     const dropdowMenu = `
         
       <label for="sortSelector">Trier par :</label>
-      <div class="select-wrapper" aria-controls="sortSelector" role="list" type="button" tabindex="0">
+      <div class="select-wrapper" tabindex="0">
         <div id="sortSelector" class="select" type="button">
           <div class="select__trigger">
               <span>Popularité</span>
               <div class="arrow"></div>
           </div>
 
-          <div class="custom-options" id="custom-options">
-            <span class="custom-option likes selected" value="likes" role="listitem">Popularité</span>
+          <div class="custom-options" id="custom-options" aria-label="Trie" role="listbox" type="button">
+            <span class="custom-option likes selected" value="likes" aria-selected="true" role="option">Popularité</span>
             <hr />
-            <span class="custom-option title" value="title" role="listitem">Titre</span>
+            <span class="custom-option title" value="title" role="option">Titre</span>
             <hr />
-            <span class="custom-option date" value="date" role="listitem">Date</span>
+            <span class="custom-option date" value="date" role="option">Date</span>
           </div>
 
         </div>
