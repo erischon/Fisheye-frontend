@@ -826,7 +826,7 @@ form button:focus {
           animation-duration: 0.3s;
 }
 
-.select.open .custom-options .underline {
+.select.open .custom-options .custom-option:first-letter {
   text-decoration: underline;
   font-weight: 700;
   margin-right: 2px;

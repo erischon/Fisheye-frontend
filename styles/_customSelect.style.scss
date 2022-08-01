@@ -64,7 +64,7 @@
   animation-name: dropdownOpen;
   animation-duration: 0.3s;
 
-  .underline {
+  .custom-option:first-letter {
     text-decoration: underline;
     font-weight: 700;
     margin-right: 2px;

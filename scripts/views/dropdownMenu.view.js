@@ -22,11 +22,11 @@ export class DropdownMenu {
           </div>
 
           <div class="custom-options" id="custom-options">
-            <span class="custom-option likes selected" value="likes" role="listitem"><span class="underline">P</span>opularité</span>
+            <span class="custom-option likes selected" value="likes" role="listitem">Popularité</span>
             <hr />
-            <span class="custom-option title" value="title" role="listitem"><span class="underline">T</span>itre</span>
+            <span class="custom-option title" value="title" role="listitem">Titre</span>
             <hr />
-            <span class="custom-option date" value="date" role="listitem"><span class="underline">D</span>ate</span>
+            <span class="custom-option date" value="date" role="listitem">Date</span>
           </div>
 
         </div>
