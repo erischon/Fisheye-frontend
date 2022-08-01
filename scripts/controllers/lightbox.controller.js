@@ -236,9 +236,9 @@ export class Lightbox {
     lightboxEl.innerHTML = `
 
     <div class="lightbox__wrapper">
-      <button class="lightbox__close"></button>
-      <button class="lightbox__prev"></button>
-      <button class="lightbox__next"></button>
+      <button class="lightbox__close" aria-label="close"></button>
+      <button class="lightbox__prev"  aria-label="previous"></button>
+      <button class="lightbox__next"  aria-label="next"></button>
       <div class="lightbox__container"></div>
     </div>
     
