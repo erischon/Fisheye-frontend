@@ -507,8 +507,8 @@ h1 {
 }
 
 .contact-form__header .modal__close:focus {
-  outline: 3px solid #901c1c;
-  border-radius: 2px;
+  outline: none;
+  opacity: 0.6;
   border-radius: 45%;
 }
 
@@ -695,8 +695,8 @@ form button:focus {
 }
 
 .lightbox__close:focus {
-  outline: 3px solid #d3573c;
-  border-radius: 2px;
+  outline: none;
+  opacity: 0.6;
   border-radius: 45%;
 }
 

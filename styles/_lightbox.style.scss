@@ -74,7 +74,8 @@
   z-index: 12;
 
   &:focus {
-    @include focus(#{$clr-secondary});
+    // @include focus(#{$clr-secondary});
+    @include no-focus;
     border-radius: 45%;
   }
 }

@@ -14,6 +14,11 @@ $color-button-hover: $clr-secondary-light;
   border-radius: 2px;
 }
 
+@mixin no-focus {
+  outline: none;
+  opacity: 0.6;
+}
+
 @mixin focus-primary {
   outline: 3px solid $clr-primary;
   border-radius: 2px;
